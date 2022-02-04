@@ -1,0 +1,26 @@
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Enable UI
+frontend:
+
+# Enables configuration UI
+config:
+
+# Enable mobile app
+mobile_app:
+
+# Enable system health
+system_health:
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Enable yaml based dashboards
+lovelace:
+  mode: yaml
