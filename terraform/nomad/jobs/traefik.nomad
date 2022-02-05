@@ -64,7 +64,7 @@ job "traefik" {
       }
 
       config {
-        image        = "traefik:v2.3.6"
+        image        = "traefik:v2.6.0"
         network_mode = "host"
 
         args = [
