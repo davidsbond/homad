@@ -17,3 +17,14 @@ variable "consul_url" {
   type        = string
   description = "The URL of the Consul server"
 }
+
+variable "cloudflare_email" {
+  type        = string
+  description = "The email address to use for authenticating with Cloudflare"
+}
+
+variable "cloudflare_api_key" {
+  type        = string
+  description = "The API key to use for authenticating with Cloudflare"
+}
+
