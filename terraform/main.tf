@@ -26,4 +26,7 @@ module "cloudflare" {
   source  = "./cloudflare"
   email   = var.cloudflare_email
   api_key = var.cloudflare_api_key
+
+  # DNS record configuration
+  nomad_client_ips = var.nomad_client_ips
 }

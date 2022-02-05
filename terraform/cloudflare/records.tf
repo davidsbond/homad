@@ -1,11 +1,5 @@
-locals {
-  homad_ips = [
-    "192.168.0.18"
-  ]
-}
-
 resource "cloudflare_record" "homad_wildcard" {
-  for_each = toset(local.homad_ips)
+  for_each = var.nomad_client_ips
 
   name    = "*.homad"
   value   = each.key
@@ -15,7 +9,7 @@ resource "cloudflare_record" "homad_wildcard" {
 }
 
 resource "cloudflare_record" "homad" {
-  for_each = toset(local.homad_ips)
+  for_each = var.nomad_client_ips
 
   name    = "homad"
   value   = each.key
@@ -25,7 +19,7 @@ resource "cloudflare_record" "homad" {
 }
 
 resource "cloudflare_record" "www_homad" {
-  for_each = toset(local.homad_ips)
+  for_each = var.nomad_client_ips
 
   name    = "www.homad"
   value   = each.key
