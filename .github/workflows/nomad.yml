@@ -1,0 +1,22 @@
+name: nomad
+on:
+  push:
+    paths:
+      - '**.nomad'
+
+jobs:
+  validate:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Install Nomad
+        run: |
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          sudo apt-get update 
+          sudo apt-get install nomad
+
+      - name: Validate Nomad jobs
+        run: make nomad-validate
