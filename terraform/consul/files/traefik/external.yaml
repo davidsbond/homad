@@ -1,0 +1,47 @@
+http:
+  routers:
+    nomad:
+      service: nomad
+      rule: Host(`homad.dsb.dev`)
+      entrypoints:
+        - https
+      tls:
+        certresolver: cloudflare
+
+    consul:
+      service: consul
+      rule: Host(`consul.homad.dsb.dev`)
+      entrypoints:
+        - https
+      tls:
+        certresolver: cloudflare
+
+    vault:
+      service: vault
+      rule: Host(`vault.homad.dsb.dev`)
+      entrypoints:
+        - https
+      tls:
+        certresolver: cloudflare
+
+  services:
+    nomad:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.19:4646"
+          - url: "http://192.168.0.20:4646"
+          - url: "http://192.168.0.21:4646"
+
+    consul:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.19:8500"
+          - url: "http://192.168.0.20:8500"
+          - url: "http://192.168.0.21:8500"
+
+    vault:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.0.19:8200"
+          - url: "http://192.168.0.20:8200"
+          - url: "http://192.168.0.21:8200"

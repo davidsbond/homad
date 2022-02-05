@@ -34,6 +34,13 @@ job "traefik" {
       name = "traefik"
       port = "traefik"
 
+      tags = [
+        "traefik.enable=true",
+        "traefik.http.routers.traefik.rule=Host(`traefik.homad.dsb.dev`)",
+        "traefik.http.routers.traefik.entrypoints=https",
+        "traefik.http.routers.traefik.tls.certresolver=cloudflare"
+      ]
+
       check {
         type     = "http"
         path     = "/ping"
@@ -66,6 +73,7 @@ job "traefik" {
 
         volumes = [
           "local/traefik.yaml:/etc/traefik/traefik.yaml",
+          "local/external.yaml:/etc/traefik/common/external.yaml",
           "local/letsencrypt:/letsencrypt"
         ]
       }
@@ -85,6 +93,13 @@ EOT
         destination = "local/traefik.yaml"
         data        = <<EOT
 {{- key "homad/traefik/traefik.yaml" }}
+EOT
+      }
+
+      template {
+        destination = "local/external.yaml"
+        data        = <<EOT
+{{- key "homad/traefik/external.yaml" }}
 EOT
       }
     }
