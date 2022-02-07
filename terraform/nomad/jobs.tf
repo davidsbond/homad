@@ -17,7 +17,3 @@ resource "nomad_job" "home_assistant" {
 resource "nomad_job" "grafana" {
   jobspec = file("${path.module}/jobs/grafana.nomad")
 }
-
-resource "nomad_job" "emulatorjs" {
-  jobspec = file("${path.module}/jobs/emulatorjs.nomad")
-}

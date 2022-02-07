@@ -6,10 +6,10 @@ job "pihole" {
   group "pihole" {
     count = 1
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
+    volume "pihole" {
+      type      = "host"
+      read_only = false
+      source    = "pihole"
     }
 
     network {
@@ -44,6 +44,12 @@ job "pihole" {
     task "pihole" {
       driver = "docker"
 
+      volume_mount {
+        volume      = "pihole"
+        destination = "/etc/pihole"
+        read_only   = false
+      }
+
       config {
         image = "pihole/pihole:2022.01.1"
 
@@ -51,15 +57,6 @@ job "pihole" {
           "dns",
           "pihole"
         ]
-
-        volumes = [
-          "local/storage/pihole:/etc/pihole",
-          "local/storage/dnsmasq:/etc/dnsmasq.d",
-        ]
-      }
-
-      logs {
-        max_files = 1
       }
 
       template {

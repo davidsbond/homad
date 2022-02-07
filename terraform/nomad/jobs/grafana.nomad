@@ -10,10 +10,10 @@ job "grafana" {
       }
     }
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
+    volume "grafana" {
+      type      = "host"
+      read_only = false
+      source    = "grafana"
     }
 
     service {
@@ -38,6 +38,7 @@ job "grafana" {
 
     task "grafana" {
       driver = "docker"
+      user   = "0"
 
       vault {
         policies      = ["grafana-reader"]
@@ -45,13 +46,18 @@ job "grafana" {
         change_signal = "SIGUSR1"
       }
 
+      volume_mount {
+        volume      = "grafana"
+        destination = "/var/lib/grafana"
+        read_only   = false
+      }
+
       config {
         image = "grafana/grafana:8.3.4"
         ports = ["grafana"]
 
         volumes = [
-          "local/data:/grafana",
-          "local/grafana.ini:/etc/grafana/grafana.ini",
+          "local/grafana.ini:/etc/grafana/grafana.ini"
         ]
       }
 
@@ -71,10 +77,6 @@ EOT
         data        = <<EOT
 {{- key "homad/grafana/grafana.ini" }}
 EOT
-      }
-
-      logs {
-        max_files = 1
       }
     }
   }

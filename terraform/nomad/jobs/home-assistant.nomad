@@ -10,10 +10,10 @@ job "homeassistant" {
       }
     }
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
+    volume "home_assistant" {
+      type      = "host"
+      read_only = false
+      source    = "home-assistant"
     }
 
     service {
@@ -39,8 +39,14 @@ job "homeassistant" {
     task "homeassistant" {
       driver = "docker"
 
+      volume_mount {
+        volume      = "home_assistant"
+        destination = "/config/.storage"
+        read_only   = false
+      }
+
       config {
-        image = "homeassistant/home-assistant:2021.1.5"
+        image = "homeassistant/home-assistant:2022.2"
         ports = ["homeassistant"]
 
         volumes = [
@@ -50,12 +56,7 @@ job "homeassistant" {
           "local/scenes.yaml:/config/scenes.yaml",
           "local/scripts.yaml:/config/scripts.yaml",
           "local/ui-lovelace.yaml:/config/ui-lovelace.yaml",
-          "local/storage:/config/.storage"
         ]
-      }
-
-      logs {
-        max_files = 1
       }
 
       template {

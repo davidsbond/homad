@@ -10,10 +10,10 @@ job "bitwarden" {
       }
     }
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
+    volume "bitwarden" {
+      type      = "host"
+      read_only = false
+      source    = "bitwarden"
     }
 
     service {
@@ -39,17 +39,15 @@ job "bitwarden" {
     task "bitwarden" {
       driver = "docker"
 
+      volume_mount {
+        volume      = "bitwarden"
+        destination = "/data"
+        read_only   = false
+      }
+
       config {
         image = "vaultwarden/server:1.24.0"
         ports = ["bitwarden"]
-
-        volumes = [
-          "local/data:/data"
-        ]
-      }
-
-      logs {
-        max_files = 1
       }
     }
   }

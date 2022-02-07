@@ -6,6 +6,12 @@ job "traefik" {
   group "traefik" {
     count = 1
 
+    volume "traefik" {
+      type      = "host"
+      read_only = false
+      source    = "traefik"
+    }
+
     network {
       port "http" {
         static = 80
@@ -22,12 +28,6 @@ job "traefik" {
       port "traefik" {
         static = 8080
       }
-    }
-
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
     }
 
     service {
@@ -59,8 +59,10 @@ job "traefik" {
         change_signal = "SIGUSR1"
       }
 
-      logs {
-        max_files = 1
+      volume_mount {
+        volume      = "traefik"
+        destination = "/letsencrypt"
+        read_only   = false
       }
 
       config {
@@ -73,8 +75,7 @@ job "traefik" {
 
         volumes = [
           "local/traefik.yaml:/etc/traefik/traefik.yaml",
-          "local/external.yaml:/etc/traefik/common/external.yaml",
-          "local/letsencrypt:/letsencrypt"
+          "local/external.yaml:/etc/traefik/common/external.yaml"
         ]
       }
 

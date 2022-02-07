@@ -24,3 +24,9 @@ discovery:
 # Enable yaml based dashboards
 lovelace:
   mode: yaml
+
+# Allow reverse proxies
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.0/24
