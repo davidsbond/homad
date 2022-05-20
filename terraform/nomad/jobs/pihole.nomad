@@ -54,6 +54,12 @@ job "pihole" {
     task "pihole" {
       driver = "docker"
 
+      vault {
+        policies      = ["pihole-reader"]
+        change_mode   = "signal"
+        change_signal = "SIGUSR1"
+      }
+
       config {
         image = "pihole/pihole:2022.04.3"
 
@@ -70,6 +76,16 @@ job "pihole" {
 
       logs {
         max_files = 1
+      }
+
+      template {
+        destination = "secrets/pihole.env"
+        env         = true
+        data        = <<EOT
+{{- with secret "pihole/data/auth" }}
+WEBPASSWORD={{.Data.data.password}}
+{{ end }}
+EOT
       }
 
       template {
