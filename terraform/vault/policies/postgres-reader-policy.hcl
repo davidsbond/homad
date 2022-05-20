@@ -1,4 +1,4 @@
-# Allow reading cloudflare credentials
+# Allow reading postgres credentials
 path "postgres/*" {
   capabilities = ["read"]
 }

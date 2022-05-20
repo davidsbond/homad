@@ -13,3 +13,7 @@ resource "nomad_job" "home_assistant" {
 resource "nomad_job" "pihole" {
   jobspec = file("${path.module}/jobs/pihole.nomad")
 }
+
+resource "nomad_job" "postgres" {
+  jobspec = file("${path.module}/jobs/postgres.nomad")
+}
