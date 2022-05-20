@@ -6,6 +6,10 @@ job "pihole" {
   group "pihole" {
     count = 2
 
+    update {
+      max_parallel = 1
+    }
+
     constraint {
       operator = "distinct_hosts"
       value    = "true"
@@ -35,7 +39,8 @@ job "pihole" {
         "traefik.enable=true",
         "traefik.http.routers.pihole.rule=Host(`pihole.homelab.dsb.dev`)",
         "traefik.http.routers.pihole.entrypoints=https",
-        "traefik.http.routers.pihole.tls.certresolver=cloudflare"
+        "traefik.http.routers.pihole.tls.certresolver=cloudflare",
+        "traefik.http.services.pihole.loadBalancer.sticky.cookie.name=pihole"
       ]
 
       check {

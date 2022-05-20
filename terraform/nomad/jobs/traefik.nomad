@@ -6,6 +6,10 @@ job "traefik" {
   group "traefik" {
     count = 1
 
+    update {
+      max_parallel = 1
+    }
+
     network {
       port "http" {
         static = 80
@@ -38,7 +42,8 @@ job "traefik" {
         "traefik.enable=true",
         "traefik.http.routers.traefik.rule=Host(`traefik.homelab.dsb.dev`)",
         "traefik.http.routers.traefik.entrypoints=https",
-        "traefik.http.routers.traefik.tls.certresolver=cloudflare"
+        "traefik.http.routers.traefik.tls.certresolver=cloudflare",
+        "traefik.http.services.traefik.loadBalancer.sticky.cookie.name=traefik"
       ]
 
       check {
