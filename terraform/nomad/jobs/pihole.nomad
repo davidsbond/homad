@@ -1,10 +1,15 @@
 job "pihole" {
   region      = "global"
   datacenters = ["homad"]
-  type        = "system"
+  type        = "service"
 
   group "pihole" {
-    count = 1
+    count = 2
+
+    constraint {
+      operator = "distinct_hosts"
+      value    = "true"
+    }
 
     ephemeral_disk {
       migrate = true
