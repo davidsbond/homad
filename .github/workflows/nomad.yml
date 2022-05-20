@@ -1,6 +1,11 @@
 name: nomad
 on:
   push:
+    branches:
+      - master
+    paths:
+      - '**.nomad'
+  pull_request:
     paths:
       - '**.nomad'
 

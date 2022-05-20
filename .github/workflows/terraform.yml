@@ -1,0 +1,104 @@
+name: terraform
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**.tf'
+  pull_request:
+    paths:
+      - '**.tf'
+
+jobs:
+  format:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Format
+        run: make format
+
+  plan:
+    needs:
+      - format
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Set up cache
+        uses: actions/cache@v3
+        with:
+          path: terraform/.terraform
+          key: ${{ runner.os }}-${{ hashFiles('**/.terraform.lock.hcl') }}
+
+      - name: Unlock git-crypt
+        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+
+      - name: Connect to Tailnet
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: make init
+
+      - name: Terraform Plan
+        run: make plan
+
+      - name: Upload Plan
+        uses: actions/upload-artifact@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          name: plan
+          path: terraform/.plan
+          retention-days: 3
+
+  apply:
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/master'
+    needs:
+      - plan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Set up cache
+        uses: actions/cache@v3
+        with:
+          path: terraform/.terraform
+          key: ${{ runner.os }}-${{ hashFiles('**/.terraform.lock.hcl') }}
+
+      - name: Unlock git-crypt
+        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+
+      - name: Connect to Tailnet
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: make init
+
+      - name: Download Plan
+        uses: actions/download-artifact@v3
+        with:
+          name: plan
+          path: terraform
+
+      - name: Terraform Apply
+        run: make apply
