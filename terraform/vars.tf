@@ -28,7 +28,12 @@ variable "cloudflare_api_key" {
   description = "The API key to use for authenticating with Cloudflare"
 }
 
-variable "nomad_client_ips" {
-  type        = set(string)
-  description = "The IP addresses of the Nomad client nodes"
+variable "tailscale_api_key" {
+  type        = string
+  description = "The API key to use for authenticating with the Tailscale API"
+}
+
+variable "tailscale_tailnet" {
+  type        = string
+  description = "The Tailnet to use"
 }

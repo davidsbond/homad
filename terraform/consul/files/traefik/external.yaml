@@ -2,7 +2,7 @@ http:
   routers:
     nomad:
       service: nomad
-      rule: Host(`homad.dsb.dev`)
+      rule: Host(`homelab.dsb.dev`)
       entrypoints:
         - https
       tls:
@@ -10,7 +10,7 @@ http:
 
     consul:
       service: consul
-      rule: Host(`consul.homad.dsb.dev`)
+      rule: Host(`consul.homelab.dsb.dev`)
       entrypoints:
         - https
       tls:
@@ -18,7 +18,7 @@ http:
 
     vault:
       service: vault
-      rule: Host(`vault.homad.dsb.dev`)
+      rule: Host(`vault.homelab.dsb.dev`)
       entrypoints:
         - https
       tls:
@@ -28,20 +28,18 @@ http:
     nomad:
       loadBalancer:
         servers:
-          - url: "http://192.168.0.19:4646"
-          - url: "http://192.168.0.20:4646"
-          - url: "http://192.168.0.21:4646"
+          - url: "http://100.105.214.9:4646"
+          - url: "http://100.88.254.41:4646"
+          - url: "http://100.99.108.54:4646"
 
     consul:
       loadBalancer:
         servers:
-          - url: "http://192.168.0.19:8500"
-          - url: "http://192.168.0.20:8500"
-          - url: "http://192.168.0.21:8500"
+          - url: "http://100.76.222.102:8500"
 
     vault:
       loadBalancer:
         servers:
-          - url: "http://192.168.0.19:8200"
-          - url: "http://192.168.0.20:8200"
-          - url: "http://192.168.0.21:8200"
+          - url: "http://100.105.214.9:8200"
+          - url: "http://100.88.254.41:8200"
+          - url: "http://100.99.108.54:8200"

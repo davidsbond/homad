@@ -1,15 +1,15 @@
 job "pihole" {
   region      = "global"
-  datacenters = ["dc1"]
+  datacenters = ["homad"]
   type        = "system"
 
   group "pihole" {
     count = 1
 
-    volume "pihole" {
-      type      = "host"
-      read_only = false
-      source    = "pihole"
+    ephemeral_disk {
+      migrate = true
+      size    = 100
+      sticky  = true
     }
 
     network {
@@ -28,7 +28,7 @@ job "pihole" {
 
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.pihole.rule=Host(`pihole.homad.dsb.dev`)",
+        "traefik.http.routers.pihole.rule=Host(`pihole.homelab.dsb.dev`)",
         "traefik.http.routers.pihole.entrypoints=https",
         "traefik.http.routers.pihole.tls.certresolver=cloudflare"
       ]
@@ -44,19 +44,22 @@ job "pihole" {
     task "pihole" {
       driver = "docker"
 
-      volume_mount {
-        volume      = "pihole"
-        destination = "/etc/pihole"
-        read_only   = false
-      }
-
       config {
-        image = "pihole/pihole:2022.01.1"
+        image = "pihole/pihole:2022.04.3"
 
         ports = [
           "dns",
           "pihole"
         ]
+
+        volumes = [
+          "local/storage/pihole:/etc/pihole",
+          "local/storage/dnsmasq:/etc/dnsmasq.d",
+        ]
+      }
+
+      logs {
+        max_files = 1
       }
 
       template {

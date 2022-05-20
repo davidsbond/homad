@@ -6,7 +6,7 @@ providers:
   consulCatalog:
     exposedByDefault: false
     endpoint:
-      address: 127.0.0.1:8500
+      address: 100.76.222.102:8500
       scheme: http
   file:
     directory: /etc/traefik/common/

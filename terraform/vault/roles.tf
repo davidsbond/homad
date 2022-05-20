@@ -7,6 +7,5 @@ resource "vault_token_auth_backend_role" "nomad_cluster" {
   renewable              = true
   allowed_policies = [
     vault_policy.cloudflare_reader.name,
-    vault_policy.grafana_reader.name
   ]
 }

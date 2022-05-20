@@ -1,7 +1,7 @@
 terraform {
   backend "consul" {
-    address = "192.168.0.21:8500"
-    scheme  = "http"
+    address = "consul.homelab.dsb.dev"
+    scheme  = "https"
     path    = "homad/terraform"
   }
 }
@@ -22,11 +22,15 @@ module "consul" {
   address = var.consul_url
 }
 
-module "cloudflare" {
-  source  = "./cloudflare"
-  email   = var.cloudflare_email
-  api_key = var.cloudflare_api_key
+module "tailscale" {
+  source  = "./tailscale"
+  api_key = var.tailscale_api_key
+  tailnet = var.tailscale_tailnet
+}
 
-  # DNS record configuration
-  nomad_client_ips = var.nomad_client_ips
+module "cloudflare" {
+  source           = "./cloudflare"
+  api_key          = var.cloudflare_api_key
+  email            = var.cloudflare_email
+  nomad_client_ips = module.tailscale.homelab_clients
 }

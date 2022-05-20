@@ -1,29 +1,32 @@
-resource "cloudflare_record" "homad_wildcard" {
+resource "cloudflare_record" "homelab_wildcard" {
   for_each = var.nomad_client_ips
 
-  name    = "*.homad"
-  value   = each.key
-  type    = "A"
-  ttl     = 3600
-  zone_id = data.cloudflare_zone.dsb_dev.id
+  name            = "*.homelab"
+  value           = each.key
+  type            = "A"
+  ttl             = 3600
+  zone_id         = data.cloudflare_zone.dsb_dev.id
+  allow_overwrite = true
 }
 
-resource "cloudflare_record" "homad" {
+resource "cloudflare_record" "homelab" {
   for_each = var.nomad_client_ips
 
-  name    = "homad"
-  value   = each.key
-  type    = "A"
-  ttl     = 3600
-  zone_id = data.cloudflare_zone.dsb_dev.id
+  name            = "homelab"
+  value           = each.key
+  type            = "A"
+  ttl             = 3600
+  zone_id         = data.cloudflare_zone.dsb_dev.id
+  allow_overwrite = true
 }
 
-resource "cloudflare_record" "www_homad" {
+resource "cloudflare_record" "www_homelab" {
   for_each = var.nomad_client_ips
 
-  name    = "www.homad"
-  value   = each.key
-  type    = "A"
-  ttl     = 3600
-  zone_id = data.cloudflare_zone.dsb_dev.id
+  name            = "www.homelab"
+  value           = each.key
+  type            = "A"
+  ttl             = 3600
+  zone_id         = data.cloudflare_zone.dsb_dev.id
+  allow_overwrite = true
 }

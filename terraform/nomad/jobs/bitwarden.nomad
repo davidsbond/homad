@@ -1,5 +1,5 @@
 job "bitwarden" {
-  datacenters = ["dc1"]
+  datacenters = ["homad"]
   type        = "service"
   region      = "global"
 
@@ -10,10 +10,10 @@ job "bitwarden" {
       }
     }
 
-    volume "bitwarden" {
-      type      = "host"
-      read_only = false
-      source    = "bitwarden"
+    ephemeral_disk {
+      migrate = true
+      size    = 100
+      sticky  = true
     }
 
     service {
@@ -23,7 +23,7 @@ job "bitwarden" {
 
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.bitwarden.rule=Host(`bitwarden.homad.dsb.dev`)",
+        "traefik.http.routers.bitwarden.rule=Host(`bitwarden.homelab.dsb.dev`)",
         "traefik.http.routers.bitwarden.entrypoints=https",
         "traefik.http.routers.bitwarden.tls.certresolver=cloudflare"
       ]
@@ -39,15 +39,17 @@ job "bitwarden" {
     task "bitwarden" {
       driver = "docker"
 
-      volume_mount {
-        volume      = "bitwarden"
-        destination = "/data"
-        read_only   = false
-      }
-
       config {
         image = "vaultwarden/server:1.24.0"
         ports = ["bitwarden"]
+
+        volumes = [
+          "local/data:/data"
+        ]
+      }
+
+      logs {
+        max_files = 1
       }
     }
   }

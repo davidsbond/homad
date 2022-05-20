@@ -1,16 +1,10 @@
 job "traefik" {
   region      = "global"
-  datacenters = ["dc1"]
+  datacenters = ["homad"]
   type        = "system"
 
   group "traefik" {
     count = 1
-
-    volume "traefik" {
-      type      = "host"
-      read_only = false
-      source    = "traefik"
-    }
 
     network {
       port "http" {
@@ -30,13 +24,19 @@ job "traefik" {
       }
     }
 
+    ephemeral_disk {
+      migrate = true
+      size    = 100
+      sticky  = true
+    }
+
     service {
       name = "traefik"
       port = "traefik"
 
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.traefik.rule=Host(`traefik.homad.dsb.dev`)",
+        "traefik.http.routers.traefik.rule=Host(`traefik.homelab.dsb.dev`)",
         "traefik.http.routers.traefik.entrypoints=https",
         "traefik.http.routers.traefik.tls.certresolver=cloudflare"
       ]
@@ -59,14 +59,12 @@ job "traefik" {
         change_signal = "SIGUSR1"
       }
 
-      volume_mount {
-        volume      = "traefik"
-        destination = "/letsencrypt"
-        read_only   = false
+      logs {
+        max_files = 1
       }
 
       config {
-        image        = "traefik:v2.6.0"
+        image        = "traefik:v2.7"
         network_mode = "host"
 
         args = [
@@ -75,7 +73,8 @@ job "traefik" {
 
         volumes = [
           "local/traefik.yaml:/etc/traefik/traefik.yaml",
-          "local/external.yaml:/etc/traefik/common/external.yaml"
+          "local/external.yaml:/etc/traefik/common/external.yaml",
+          "secrets/letsencrypt:/letsencrypt"
         ]
       }
 
