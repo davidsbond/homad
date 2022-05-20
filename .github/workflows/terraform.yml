@@ -1,5 +1,7 @@
 name: terraform
 on:
+  schedule:
+    - cron: '0 * * * *'
   push:
     branches:
       - master
@@ -25,6 +27,7 @@ jobs:
         run: make format
 
   plan:
+    concurrency: terraform
     needs:
       - format
     runs-on: ubuntu-20.04
@@ -66,10 +69,11 @@ jobs:
           retention-days: 3
 
   apply:
-    runs-on: ubuntu-20.04
-    if: github.ref == 'refs/heads/master'
+    concurrency: terraform
     needs:
       - plan
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.0
