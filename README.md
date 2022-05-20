@@ -17,4 +17,3 @@ Within my Nomad cluster, I run the following services:
 * [PiHole](https://pi-hole.net/) - DNS & Adblocker that I use on my networked devices at home
 * [Home Assistant](https://www.home-assistant.io/) - IoT integration suite that allows me to manage & automate my smart devices
 * [Bitwarden](https://bitwarden.com/) - Password manager
-* [Grafana](https://grafana.com/) - Dashboard creation tool
