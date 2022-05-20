@@ -2,8 +2,7 @@ resource "consul_key_prefix" "pihole" {
   path_prefix = "homad/pihole/"
   subkeys = {
     "TZ"           = "Europe/London"
-    "DNS1"         = "8.8.8.8"
-    "DNS2"         = "8.8.4.4"
+    "DNS1"         = "127.0.0.1#5053"
     "VIRTUAL_HOST" = "pihole.homelab.dsb.dev"
   }
 }

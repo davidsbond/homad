@@ -98,5 +98,32 @@ EOT
 EOT
       }
     }
+
+    task "cloudflared" {
+      driver = "docker"
+
+      config {
+        image   = "raspbernetes/cloudflared:2022.5.1"
+        command = "cloudflared"
+        args = [
+          "--no-autoupdate",
+          "--proxy-dns"
+        ]
+      }
+
+      logs {
+        max_files = 1
+      }
+
+      template {
+        destination = "local/cloudflared.env"
+        env         = true
+        data        = <<EOT
+{{ range ls "homad/cloudflared" }}
+{{.Key}}={{.Value}}
+{{ end }}
+EOT
+      }
+    }
   }
 }
