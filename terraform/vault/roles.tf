@@ -8,5 +8,6 @@ resource "vault_token_auth_backend_role" "nomad_cluster" {
   allowed_policies = [
     vault_policy.cloudflare_reader.name,
     vault_policy.postgres_reader.name,
+    vault_policy.pihole_reader.name,
   ]
 }
