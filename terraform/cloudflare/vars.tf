@@ -12,3 +12,8 @@ variable "nomad_client_ips" {
   type        = set(string)
   description = "The IP addresses of the Nomad client nodes"
 }
+
+variable "nas_ip" {
+  type        = string
+  description = "The IP address of the synology NAS"
+}

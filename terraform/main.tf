@@ -29,8 +29,11 @@ module "tailscale" {
 }
 
 module "cloudflare" {
-  source           = "./cloudflare"
-  api_key          = var.cloudflare_api_key
-  email            = var.cloudflare_email
+  source  = "./cloudflare"
+  api_key = var.cloudflare_api_key
+  email   = var.cloudflare_email
+
+  # IP addresses that become records
   nomad_client_ips = module.tailscale.homelab_clients
+  nas_ip           = module.tailscale.nas
 }

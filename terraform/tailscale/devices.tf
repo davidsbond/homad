@@ -9,3 +9,7 @@ data "tailscale_device" "homad_2" {
 data "tailscale_device" "homad_3" {
   name = "homad-3.davidsbond93.gmail.com"
 }
+
+data "tailscale_device" "nas" {
+  name = "home-nas.davidsbond93.gmail.com"
+}

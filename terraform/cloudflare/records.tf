@@ -30,3 +30,21 @@ resource "cloudflare_record" "www_homelab" {
   zone_id         = data.cloudflare_zone.dsb_dev.id
   allow_overwrite = true
 }
+
+resource "cloudflare_record" "nas" {
+  name            = "nas"
+  value           = var.nas_ip
+  type            = "A"
+  ttl             = 3600
+  zone_id         = data.cloudflare_zone.dsb_dev.id
+  allow_overwrite = true
+}
+
+resource "cloudflare_record" "www_nas" {
+  name            = "www.nas"
+  value           = var.nas_ip
+  type            = "A"
+  ttl             = 3600
+  zone_id         = data.cloudflare_zone.dsb_dev.id
+  allow_overwrite = true
+}

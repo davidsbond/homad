@@ -5,3 +5,7 @@ output "homelab_clients" {
     element(data.tailscale_device.homad_3.addresses, 0),
   ]
 }
+
+output "nas" {
+  value = element(data.tailscale_device.nas.addresses, 0)
+}
