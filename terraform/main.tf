@@ -10,6 +10,17 @@ module "vault" {
   source  = "./vault"
   address = var.vault_url
   token   = var.vault_token
+
+  # Cloudflare secrets
+  cloudflare_api_key = var.cloudflare_api_key
+  cloudflare_email   = var.cloudflare_email
+
+  # Pihole secrets
+  pihole_password = var.pihole_password
+
+  # Postgres secrets
+  postgres_root_user     = var.postgres_root_user
+  postgres_root_password = var.postgres_root_password
 }
 
 module "nomad" {
