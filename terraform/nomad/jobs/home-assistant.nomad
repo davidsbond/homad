@@ -39,6 +39,12 @@ job "homeassistant" {
     task "homeassistant" {
       driver = "docker"
 
+      vault {
+        policies      = ["postgres-reader"]
+        change_mode   = "signal"
+        change_signal = "SIGUSR1"
+      }
+
       config {
         image = "homeassistant/home-assistant:2022.5"
         ports = ["homeassistant"]
@@ -50,12 +56,22 @@ job "homeassistant" {
           "local/scenes.yaml:/config/scenes.yaml",
           "local/scripts.yaml:/config/scripts.yaml",
           "local/ui-lovelace.yaml:/config/ui-lovelace.yaml",
+          "secrets/secrets.yaml:/config/secrets.yaml",
           "local/storage:/config/.storage"
         ]
       }
 
       logs {
         max_files = 1
+      }
+
+      template {
+        destination = "secrets/secrets.yaml"
+        data        = <<EOT
+{{- with secret "postgres/data/home_assistant" }}
+db_url: postgresql://{{.Data.data.user}}:{{.Data.data.password}}@postgres.homelab.dsb.dev:5432/{{.Data.data.database}}
+{{ end }}
+EOT
       }
 
       template {

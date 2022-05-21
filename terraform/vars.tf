@@ -45,10 +45,15 @@ variable "pihole_password" {
 
 variable "postgres_root_user" {
   type        = string
-  description = "The root username for postgres"
+  description = "The root username for Postgres"
 }
 
 variable "postgres_root_password" {
   type        = string
-  description = "The root password for postgres"
+  description = "The root password for Postgres"
+}
+
+variable "postgres_host" {
+  type        = string
+  description = "The host of the Postgres instance"
 }
