@@ -79,7 +79,7 @@ job "traefik" {
         volumes = [
           "local/traefik.yaml:/etc/traefik/traefik.yaml",
           "local/external.yaml:/etc/traefik/common/external.yaml",
-          "secrets/letsencrypt:/letsencrypt"
+          "local/letsencrypt:/letsencrypt"
         ]
       }
 

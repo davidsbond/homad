@@ -19,10 +19,15 @@ entryPoints:
         entryPoint:
           to: https
           scheme: https
+
   https:
     address: :443
+
   ping:
     address: :8082
+
+  postgres:
+    address: :5432
 
 ping:
   entryPoint: ping
