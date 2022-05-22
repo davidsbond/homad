@@ -21,6 +21,13 @@ job "postgres" {
       port = "postgres"
       task = "postgres"
 
+      tags = [
+        "traefik.enable=true",
+        "traefik.tcp.routers.postgres.entrypoints=postgres",
+        "traefik.tcp.routers.postgres.rule=HostSNI(`*`)",
+        "traefik.tcp.services.postgres.loadBalancer.server.port=${NOMAD_HOST_PORT_postgres}"
+      ]
+
       check {
         type     = "tcp"
         port     = "postgres"
@@ -45,6 +52,11 @@ job "postgres" {
         volumes = [
           "local/data:/data"
         ]
+      }
+
+      resources {
+        memory     = 1024
+        memory_max = 2048
       }
 
       template {
