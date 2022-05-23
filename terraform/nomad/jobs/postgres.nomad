@@ -10,6 +10,14 @@ job "postgres" {
       }
     }
 
+    volume "postgres" {
+      type            = "csi"
+      source          = "postgres"
+      read_only       = false
+      attachment_mode = "file-system"
+      access_mode     = "multi-node-multi-writer"
+    }
+
     ephemeral_disk {
       migrate = true
       size    = 1024
@@ -48,10 +56,11 @@ job "postgres" {
       config {
         image = "postgres:13"
         ports = ["postgres"]
+      }
 
-        volumes = [
-          "local/data:/data"
-        ]
+      volume_mount {
+        volume      = "postgres"
+        destination = "/data"
       }
 
       resources {

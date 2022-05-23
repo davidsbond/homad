@@ -10,6 +10,14 @@ job "bitwarden" {
       }
     }
 
+    volume "bitwarden" {
+      type            = "csi"
+      source          = "bitwarden"
+      read_only       = false
+      attachment_mode = "file-system"
+      access_mode     = "multi-node-multi-writer"
+    }
+
     ephemeral_disk {
       migrate = true
       size    = 100
@@ -42,14 +50,15 @@ job "bitwarden" {
       config {
         image = "vaultwarden/server:1.24.0"
         ports = ["bitwarden"]
-
-        volumes = [
-          "local/data:/data"
-        ]
       }
 
       logs {
         max_files = 1
+      }
+
+      volume_mount {
+        volume      = "bitwarden"
+        destination = "/data"
       }
     }
   }
