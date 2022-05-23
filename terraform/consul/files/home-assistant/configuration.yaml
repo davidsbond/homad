@@ -15,9 +15,6 @@ mobile_app:
 # Enable system health
 system_health:
 
-# Checks for available updates
-updater:
-
 # Discover some devices automatically
 discovery:
 
@@ -30,3 +27,11 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 192.168.0.0/24
+
+# Set up recording with sqlite
+recorder:
+  db_url: sqlite:////config/.storage/recorder.db
+  purge_keep_days: 7
+
+# Enable history with recorder
+history:
