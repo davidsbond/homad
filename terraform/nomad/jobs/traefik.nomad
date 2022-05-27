@@ -1,13 +1,26 @@
 job "traefik" {
   region      = "global"
   datacenters = ["homad"]
-  type        = "system"
+  type        = "service"
 
   group "traefik" {
-    count = 1
+    count = 3
+
+    constraint {
+      operator = "distinct_hosts"
+      value    = "true"
+    }
 
     update {
       max_parallel = 1
+    }
+
+    volume "traefik" {
+      type            = "csi"
+      source          = "traefik"
+      read_only       = false
+      attachment_mode = "file-system"
+      access_mode     = "multi-node-multi-writer"
     }
 
     network {
@@ -78,9 +91,13 @@ job "traefik" {
 
         volumes = [
           "local/traefik.yaml:/etc/traefik/traefik.yaml",
-          "local/external.yaml:/etc/traefik/common/external.yaml",
-          "local/letsencrypt:/letsencrypt"
+          "local/external.yaml:/etc/traefik/common/external.yaml"
         ]
+      }
+
+      volume_mount {
+        volume      = "traefik"
+        destination = "/letsencrypt"
       }
 
       template {

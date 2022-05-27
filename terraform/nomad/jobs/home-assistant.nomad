@@ -10,6 +10,14 @@ job "homeassistant" {
       }
     }
 
+    volume "home-assistant" {
+      type            = "csi"
+      source          = "home-assistant"
+      read_only       = false
+      attachment_mode = "file-system"
+      access_mode     = "multi-node-multi-writer"
+    }
+
     ephemeral_disk {
       migrate = true
       size    = 100
@@ -49,9 +57,13 @@ job "homeassistant" {
           "local/groups.yaml:/config/groups.yaml",
           "local/scenes.yaml:/config/scenes.yaml",
           "local/scripts.yaml:/config/scripts.yaml",
-          "local/ui-lovelace.yaml:/config/ui-lovelace.yaml",
-          "local/storage:/config/.storage"
+          "local/ui-lovelace.yaml:/config/ui-lovelace.yaml"
         ]
+      }
+
+      volume_mount {
+        volume      = "home-assistant"
+        destination = "/config/.storage"
       }
 
       logs {
