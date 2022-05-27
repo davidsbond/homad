@@ -19,8 +19,10 @@ module "vault" {
   pihole_password = var.pihole_password
 
   # Postgres secrets
-  postgres_root_user     = var.postgres_root_user
-  postgres_root_password = var.postgres_root_password
+  postgres_root_user               = var.postgres_root_user
+  postgres_root_password           = var.postgres_root_password
+  postgres_home_assistant_user     = module.postgres.home_assistant_username
+  postgres_home_assistant_password = module.postgres.home_assistant_password
 }
 
 module "nomad" {
@@ -47,4 +49,11 @@ module "cloudflare" {
   # IP addresses that become records
   nomad_client_ips = module.tailscale.homelab_clients
   nas_ip           = module.tailscale.nas
+}
+
+module "postgres" {
+  source   = "./postgres"
+  host     = var.postgres_host
+  username = var.postgres_root_user
+  password = var.postgres_root_password
 }

@@ -32,3 +32,13 @@ variable "postgres_root_password" {
   type        = string
   description = "The root password for postgres"
 }
+
+variable "postgres_home_assistant_user" {
+  type        = string
+  description = "The username in postgres for the home_assistant database"
+}
+
+variable "postgres_home_assistant_password" {
+  type        = string
+  description = "The password in postgres for the home_assistant database"
+}
