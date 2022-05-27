@@ -13,10 +13,3 @@ resource "vault_generic_secret" "pihole" {
   })
 }
 
-resource "vault_generic_secret" "postgres_root" {
-  path = "postgres/root"
-  data_json = jsonencode({
-    user     = var.postgres_root_user,
-    password = var.postgres_root_password
-  })
-}

@@ -4,6 +4,9 @@ nomad-validate:
 init:
 	cd terraform && terraform init
 
+init-upgrade:
+	cd terraform && terraform init -upgrade
+
 plan:
 	cd terraform && terraform plan -var-file=.tfvars -out .plan
 

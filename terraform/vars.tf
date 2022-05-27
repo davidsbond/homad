@@ -52,3 +52,8 @@ variable "postgres_root_password" {
   type        = string
   description = "The root password for postgres"
 }
+
+variable "postgres_host" {
+  type        = string
+  description = "The host of the postgres instance to connect to"
+}

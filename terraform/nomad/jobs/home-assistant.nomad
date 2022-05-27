@@ -47,6 +47,12 @@ job "homeassistant" {
     task "homeassistant" {
       driver = "docker"
 
+      vault {
+        policies      = ["postgres-reader"]
+        change_mode   = "signal"
+        change_signal = "SIGUSR1"
+      }
+
       config {
         image = "homeassistant/home-assistant:2022.5"
         ports = ["homeassistant"]
@@ -57,7 +63,8 @@ job "homeassistant" {
           "local/groups.yaml:/config/groups.yaml",
           "local/scenes.yaml:/config/scenes.yaml",
           "local/scripts.yaml:/config/scripts.yaml",
-          "local/ui-lovelace.yaml:/config/ui-lovelace.yaml"
+          "local/ui-lovelace.yaml:/config/ui-lovelace.yaml",
+          "secrets/secrets.yaml:/config/secrets.yaml"
         ]
       }
 
@@ -109,6 +116,15 @@ EOT
         destination = "local/ui-lovelace.yaml"
         data        = <<EOT
 {{- key "homad/home-assistant/ui-lovelace.yaml" }}
+EOT
+      }
+
+      template {
+        destination = "secrets/secrets.yaml"
+        data        = <<EOT
+{{- with secret "postgres/data/home_assistant" }}
+db_url: postgresql://{{.Data.data.user}}:{{.Data.data.password}}@postgres.homelab.dsb.dev:5432/home_assistant?sslmode=disable
+{{ end }}
 EOT
       }
     }
