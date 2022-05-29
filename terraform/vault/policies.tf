@@ -17,3 +17,8 @@ resource "vault_policy" "pihole_reader" {
   name   = "pihole-reader"
   policy = file("${path.module}/policies/pihole-reader.hcl")
 }
+
+resource "vault_policy" "grafana_reader" {
+  name   = "grafana-reader"
+  policy = file("${path.module}/policies/grafana-reader.hcl")
+}

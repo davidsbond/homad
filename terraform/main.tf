@@ -23,6 +23,10 @@ module "vault" {
   postgres_root_password           = var.postgres_root_password
   postgres_home_assistant_user     = module.postgres.home_assistant_username
   postgres_home_assistant_password = module.postgres.home_assistant_password
+
+  # Grafana secrets
+  grafana_email    = var.grafana_email
+  grafana_password = var.grafana_password
 }
 
 module "nomad" {

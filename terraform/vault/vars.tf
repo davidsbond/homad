@@ -42,3 +42,13 @@ variable "postgres_home_assistant_password" {
   type        = string
   description = "The password in postgres for the home_assistant database"
 }
+
+variable "grafana_email" {
+  type        = string
+  description = "The email address to use for authenticating with grafana"
+}
+
+variable "grafana_password" {
+  type        = string
+  description = "The password to use for authenticating with grafana"
+}

@@ -57,3 +57,13 @@ variable "postgres_host" {
   type        = string
   description = "The host of the postgres instance to connect to"
 }
+
+variable "grafana_email" {
+  type        = string
+  description = "The email address to use for authenticating with grafana"
+}
+
+variable "grafana_password" {
+  type        = string
+  description = "The password to use for authenticating with grafana"
+}
