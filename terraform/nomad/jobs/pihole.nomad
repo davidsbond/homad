@@ -79,7 +79,6 @@ job "pihole" {
 
       config {
         image = "pihole/pihole:2022.04.3"
-
         ports = [
           "dns",
           "pihole"
@@ -93,6 +92,20 @@ job "pihole" {
 
       logs {
         max_files = 1
+      }
+
+      template {
+        destination = "local/storage/dnsmasq/consul.conf"
+        change_mode = "restart"
+        data        = <<EOT
+# Enable forward lookup of the 'consul' domain:
+# https://learn.hashicorp.com/tutorials/consul/dns-forwarding
+{{- range service "consul" }}
+server=/consul/{{.Address}}#8600
+{{ end }}
+# Enable reverse DNS lookups for common netblocks found in RFC 1918, 5735, and 6598:
+rev-server=192.168.0.0/16,127.0.0.1#8600
+EOT
       }
 
       template {
