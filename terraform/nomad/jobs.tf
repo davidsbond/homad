@@ -25,3 +25,7 @@ resource "nomad_job" "storage_controller" {
 resource "nomad_job" "storage_node" {
   jobspec = file("${path.module}/jobs/csi/node.nomad")
 }
+
+resource "nomad_job" "grafana" {
+  jobspec = file("${path.module}/jobs/grafana.nomad")
+}

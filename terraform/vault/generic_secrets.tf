@@ -13,3 +13,10 @@ resource "vault_generic_secret" "pihole" {
   })
 }
 
+resource "vault_generic_secret" "grafana" {
+  path = "grafana/admin"
+  data_json = jsonencode({
+    email    = var.grafana_email
+    password = var.grafana_password
+  })
+}
