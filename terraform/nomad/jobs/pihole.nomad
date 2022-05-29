@@ -29,6 +29,8 @@ job "pihole" {
       port "dns" {
         static = 53
       }
+
+      port "cloudflared" {}
     }
 
     service {
@@ -51,6 +53,17 @@ job "pihole" {
       }
     }
 
+    service {
+      name = "cloudflared"
+      port = "cloudflared"
+
+      check {
+        type     = "tcp"
+        interval = "60s"
+        timeout  = "30s"
+      }
+    }
+
     task "pihole" {
       driver = "docker"
 
@@ -58,6 +71,10 @@ job "pihole" {
         policies      = ["pihole-reader"]
         change_mode   = "signal"
         change_signal = "SIGUSR1"
+      }
+
+      env {
+        PIHOLE_DNS_ = "${attr.unique.network.ip-address}#${NOMAD_PORT_cloudflared}"
       }
 
       config {
@@ -96,6 +113,32 @@ EOT
 {{.Key}}={{.Value}}
 {{ end }}
 EOT
+      }
+    }
+
+    task "cloudflared" {
+      driver = "docker"
+
+      lifecycle {
+        hook    = "prestart"
+        sidecar = true
+      }
+
+      config {
+        image = "raspbernetes/cloudflared:2022.5.1"
+        ports = ["cloudflared"]
+
+        args = [
+          "proxy-dns",
+          "--address",
+          "0.0.0.0",
+          "--port",
+          "${NOMAD_PORT_cloudflared}"
+        ]
+      }
+
+      logs {
+        max_files = 1
       }
     }
   }
