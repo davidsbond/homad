@@ -1,7 +1,5 @@
 name: terraform
 on:
-  schedule:
-    - cron: '0 * * * *'
   push:
     branches:
       - master
@@ -60,14 +58,6 @@ jobs:
       - name: Terraform Plan
         run: make plan
 
-      - name: Upload Plan
-        uses: actions/upload-artifact@v3
-        if: github.ref == 'refs/heads/master'
-        with:
-          name: plan
-          path: terraform/.plan
-          retention-days: 3
-
   apply:
     concurrency: terraform
     needs:
@@ -100,11 +90,8 @@ jobs:
       - name: Terraform Init
         run: make init
 
-      - name: Download Plan
-        uses: actions/download-artifact@v3
-        with:
-          name: plan
-          path: terraform
+      - name: Terraform Plan
+        run: make plan
 
       - name: Terraform Apply
         run: make apply
