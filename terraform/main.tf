@@ -23,10 +23,15 @@ module "vault" {
   postgres_root_password           = var.postgres_root_password
   postgres_home_assistant_user     = module.postgres.home_assistant_username
   postgres_home_assistant_password = module.postgres.home_assistant_password
+  postgres_boundary_user           = module.postgres.boundary_username
+  postgres_boundary_password       = module.postgres.boundary_password
 
   # Grafana secrets
   grafana_email    = var.grafana_email
   grafana_password = var.grafana_password
+
+  # Boundary secrets
+  boundary_password = module.boundary.boundary_password
 }
 
 module "nomad" {
@@ -60,4 +65,11 @@ module "postgres" {
   host     = var.postgres_host
   username = var.postgres_root_user
   password = var.postgres_root_password
+}
+
+module "boundary" {
+  source            = "./boundary"
+  addr              = var.boundary_url
+  token             = var.boundary_token
+  recovery_kms_file = var.boundary_recovery_file
 }

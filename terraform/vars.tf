@@ -67,3 +67,18 @@ variable "grafana_password" {
   type        = string
   description = "The password to use for authenticating with grafana"
 }
+
+variable "boundary_url" {
+  type        = string
+  description = "The URL of the boundary instance"
+}
+
+variable "boundary_token" {
+  type        = string
+  description = "The token to use for boundary authentication"
+}
+
+variable "boundary_recovery_file" {
+  type        = string
+  description = "The recovery file data for boundary authentication"
+}

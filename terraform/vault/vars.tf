@@ -43,6 +43,16 @@ variable "postgres_home_assistant_password" {
   description = "The password in postgres for the home_assistant database"
 }
 
+variable "postgres_boundary_user" {
+  type        = string
+  description = "The username in postgres for the boundary database"
+}
+
+variable "postgres_boundary_password" {
+  type        = string
+  description = "The password in postgres for the boundary database"
+}
+
 variable "grafana_email" {
   type        = string
   description = "The email address to use for authenticating with grafana"
@@ -51,4 +61,9 @@ variable "grafana_email" {
 variable "grafana_password" {
   type        = string
   description = "The password to use for authenticating with grafana"
+}
+
+variable "boundary_password" {
+  type        = string
+  description = "The password for the boundary administrator user"
 }

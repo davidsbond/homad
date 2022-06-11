@@ -13,3 +13,11 @@ resource "vault_generic_secret" "postgres_home_assistant" {
     password = var.postgres_home_assistant_password
   })
 }
+
+resource "vault_generic_secret" "postgres_boundary" {
+  path = "postgres/boundary"
+  data_json = jsonencode({
+    user     = var.postgres_boundary_user
+    password = var.postgres_boundary_password
+  })
+}
