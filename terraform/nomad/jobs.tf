@@ -29,3 +29,7 @@ resource "nomad_job" "storage_node" {
 resource "nomad_job" "grafana" {
   jobspec = file("${path.module}/jobs/grafana.nomad")
 }
+
+resource "nomad_job" "boundary" {
+  jobspec = file("${path.module}/jobs/boundary.nomad")
+}

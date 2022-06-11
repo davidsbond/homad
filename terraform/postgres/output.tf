@@ -5,3 +5,11 @@ output "home_assistant_password" {
 output "home_assistant_username" {
   value = postgresql_role.home_assistant.name
 }
+
+output "boundary_password" {
+  value = random_password.boundary.result
+}
+
+output "boundary_username" {
+  value = postgresql_role.boundary.name
+}

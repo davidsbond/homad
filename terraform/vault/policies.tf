@@ -22,3 +22,8 @@ resource "vault_policy" "grafana_reader" {
   name   = "grafana-reader"
   policy = file("${path.module}/policies/grafana-reader.hcl")
 }
+
+resource "vault_policy" "boundary_reader" {
+  name   = "boundary-reader"
+  policy = file("${path.module}/policies/boundary-reader.hcl")
+}

@@ -67,6 +67,26 @@ provider "registry.terraform.io/davidsbond/tailscale" {
   ]
 }
 
+provider "registry.terraform.io/hashicorp/boundary" {
+  version     = "1.0.9"
+  constraints = "1.0.9"
+  hashes = [
+    "h1:T7zDslZVPNND1/ovrttI5Qg74Wm+F2bOfVghEvEWy8I=",
+    "zh:0b5107d24da0653451dc5ce3dfa6f437c5f477a3be5ab438575bd0f08e976c01",
+    "zh:1005d57ba8ad3bb77a3c5a372d456820cafc93cd757da9eec8947209caa68630",
+    "zh:26c6c50745cee43d19bd2e9bcc14c4cddcb95a8469dd09192df19db00a00145e",
+    "zh:58b2fac2bdcc1922bfb027634826c7225db0a504047cd58f210eef91cef47700",
+    "zh:68dcf677aea2d0302f7aa3b273f5f020ca46c553fbdeee11207bc98cad674e7f",
+    "zh:6d5074742832972397ce573db3380f9465ed755d0646e7f20f26a8acc257b4c9",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:9129db7f29faf0f2af028a7bf6fea2f668107f2dc8ff7a8320e014f7006642da",
+    "zh:a737d7800c33e56f69ddfa2a047d1b2c6f02038b612a656a4b4fea61345f8bbd",
+    "zh:b5680a6249b9591c1a5ae2d2f2bc7eece651b440e4b6a01902f8478a68f1d051",
+    "zh:c0a8881aa4e56f6cc87314b4f6b29f9e40a2c0848597deeeef7f038319d28cdd",
+    "zh:c306573f73474174f9cc1b58788e6d715c13cc0ff01c444bf03cb9fea357219f",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/consul" {
   version     = "2.15.1"
   constraints = "2.15.1"

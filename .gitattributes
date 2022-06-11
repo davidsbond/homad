@@ -1,1 +1,2 @@
 terraform/.tfvars filter=git-crypt diff=git-crypt
+terraform/vault/files/**/* filter=git-crypt diff=git-crypt

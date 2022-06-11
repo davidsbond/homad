@@ -10,5 +10,6 @@ resource "vault_token_auth_backend_role" "nomad_cluster" {
     vault_policy.postgres_reader.name,
     vault_policy.pihole_reader.name,
     vault_policy.grafana_reader.name,
+    vault_policy.boundary_reader.name,
   ]
 }
