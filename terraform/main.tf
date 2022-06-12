@@ -71,5 +71,8 @@ module "boundary" {
   source            = "./boundary"
   addr              = var.boundary_url
   token             = var.boundary_token
+  vault_address     = var.vault_url
+  vault_token       = module.vault.boundary_vault_token
   recovery_kms_file = var.boundary_recovery_file
+  homelab_servers   = module.tailscale.homelab_servers
 }

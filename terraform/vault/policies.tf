@@ -27,3 +27,8 @@ resource "vault_policy" "boundary_reader" {
   name   = "boundary-reader"
   policy = file("${path.module}/policies/boundary-reader.hcl")
 }
+
+resource "vault_policy" "boundary_credential_store" {
+  name   = "boundary-credential-store"
+  policy = file("${path.module}/policies/boundary-credential-store.hcl")
+}
