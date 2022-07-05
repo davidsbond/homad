@@ -41,6 +41,10 @@ job "boundary" {
         privileged = true
       }
 
+      env {
+        BOUNDARY_WORKER_PUBLIC_ADDR = "${attr.unique.network.ip-address}"
+      }
+
       lifecycle {
         hook    = "prestart"
         sidecar = false
@@ -109,6 +113,10 @@ EOT
         policies      = ["postgres-reader", "boundary-reader"]
         change_mode   = "signal"
         change_signal = "SIGUSR1"
+      }
+
+      env {
+        BOUNDARY_WORKER_PUBLIC_ADDR = "${attr.unique.network.ip-address}"
       }
 
       template {

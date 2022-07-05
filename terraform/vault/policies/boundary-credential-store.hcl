@@ -18,4 +18,7 @@ path "sys/leases/revoke" {
   capabilities = ["update"]
 }
 
+path "boundary/homad" {
+  capabilities = ["read"]
+}
 
