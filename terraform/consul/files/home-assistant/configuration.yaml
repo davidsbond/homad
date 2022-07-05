@@ -21,6 +21,19 @@ discovery:
 # Enable yaml based dashboards
 lovelace:
   mode: yaml
+  dashboards:
+    homelab-internet:
+      mode: yaml
+      filename: ui-internet.yaml
+      title: Internet
+      icon: mdi:wifi
+      show_in_sidebar: true
+    homelab-lighting:
+      mode: yaml
+      filename: ui-lighting.yaml
+      title: Lighting
+      icon: mdi:lightbulb
+      show_in_sidebar: true
 
 # Allow reverse proxies
 http:

@@ -18,12 +18,6 @@ job "homeassistant" {
       access_mode     = "multi-node-multi-writer"
     }
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
-    }
-
     service {
       name = "homeassistant"
       port = "homeassistant"
@@ -64,6 +58,8 @@ job "homeassistant" {
           "local/scenes.yaml:/config/scenes.yaml",
           "local/scripts.yaml:/config/scripts.yaml",
           "local/ui-lovelace.yaml:/config/ui-lovelace.yaml",
+          "local/ui-internet.yaml:/config/ui-internet.yaml",
+          "local/ui-lighting.yaml:/config/ui-lighting.yaml",
           "secrets/secrets.yaml:/config/secrets.yaml"
         ]
       }
@@ -116,6 +112,20 @@ EOT
         destination = "local/ui-lovelace.yaml"
         data        = <<EOT
 {{- key "homad/home-assistant/ui-lovelace.yaml" }}
+EOT
+      }
+
+      template {
+        destination = "local/ui-internet.yaml"
+        data        = <<EOT
+{{- key "homad/home-assistant/ui-internet.yaml" }}
+EOT
+      }
+
+      template {
+        destination = "local/ui-lighting.yaml"
+        data        = <<EOT
+{{- key "homad/home-assistant/ui-lighting.yaml" }}
 EOT
       }
 
