@@ -7,5 +7,7 @@ resource "consul_key_prefix" "home_assistant" {
     "scenes.yaml"        = file("${path.module}/files/home-assistant/scenes.yaml")
     "scripts.yaml"       = file("${path.module}/files/home-assistant/scripts.yaml")
     "ui-lovelace.yaml"   = file("${path.module}/files/home-assistant/ui-lovelace.yaml")
+    "ui-internet.yaml"   = file("${path.module}/files/home-assistant/ui-internet.yaml")
+    "ui-lighting.yaml"   = file("${path.module}/files/home-assistant/ui-lighting.yaml")
   }
 }

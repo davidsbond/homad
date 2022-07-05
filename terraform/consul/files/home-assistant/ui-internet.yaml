@@ -1,0 +1,48 @@
+title: Internet
+views:
+  - title: SpeedTest
+    path: speed-test
+    theme: ''
+    badges: []
+    cards:
+      - type: sensor
+        entity: sensor.speedtest_ping
+        graph: line
+      - type: sensor
+        entity: sensor.speedtest_download
+        graph: line
+      - type: sensor
+        entity: sensor.speedtest_upload
+        graph: line
+  - title: PiHole
+    path: pi-hole
+    theme: ''
+    badges: []
+    cards:
+      - type: sensor
+        entity: sensor.pi_hole_ads_blocked_today
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_ads_percentage_blocked_today
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_seen_clients
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_dns_unique_clients
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_dns_queries_today
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_domains_blocked
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_dns_queries_cached
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_dns_queries_forwarded
+        graph: line
+      - type: sensor
+        entity: sensor.pi_hole_dns_unique_domains
+        graph: line

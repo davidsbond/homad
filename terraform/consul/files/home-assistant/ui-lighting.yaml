@@ -1,0 +1,31 @@
+title: Lighting
+views:
+  - title: Lights
+    path: lights
+    theme: ''
+    badges: []
+    cards:
+      - type: light
+        entity: light.bedroom_lamp
+        double_tap_action:
+          action: toggle
+      - type: light
+        entity: light.hallway_light
+        double_tap_action:
+          action: toggle
+      - type: light
+        entity: light.landing_light
+        double_tap_action:
+          action: toggle
+      - type: light
+        entity: light.living_room_light
+        double_tap_action:
+          action: toggle
+      - type: light
+        entity: light.office_light
+        double_tap_action:
+          action: toggle
+      - type: light
+        entity: light.spare_bedroom_lamp
+        double_tap_action:
+          action: toggle
