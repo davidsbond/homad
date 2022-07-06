@@ -28,7 +28,7 @@ job "boundary" {
       driver = "docker"
 
       config {
-        image   = "hashicorp/boundary:0.8.1"
+        image   = "hashicorp/boundary:0.9.0"
         command = "database"
         args = [
           "init",
