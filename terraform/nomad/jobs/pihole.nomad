@@ -78,7 +78,7 @@ job "pihole" {
       }
 
       config {
-        image = "pihole/pihole:2022.04.3"
+        image = "pihole/pihole:2022.05"
         ports = [
           "dns",
           "pihole"
@@ -138,7 +138,7 @@ EOT
       }
 
       config {
-        image = "raspbernetes/cloudflared:2022.5.1"
+        image = "raspbernetes/cloudflared:2022.7.0"
         ports = ["cloudflared"]
 
         args = [

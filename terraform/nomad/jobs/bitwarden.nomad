@@ -48,7 +48,7 @@ job "bitwarden" {
       driver = "docker"
 
       config {
-        image = "vaultwarden/server:1.24.0"
+        image = "vaultwarden/server:1.25.0"
         ports = ["bitwarden"]
       }
 
