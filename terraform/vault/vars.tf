@@ -67,3 +67,13 @@ variable "boundary_password" {
   type        = string
   description = "The password for the boundary administrator user"
 }
+
+variable "minio_root_user" {
+  type        = string
+  description = "The root user for accessing minio"
+}
+
+variable "minio_root_password" {
+  type        = string
+  description = "The password for the minio root user"
+}

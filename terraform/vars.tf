@@ -82,3 +82,18 @@ variable "boundary_recovery_file" {
   type        = string
   description = "The recovery file data for boundary authentication"
 }
+
+variable "minio_root_user" {
+  type        = string
+  description = "The root user for accessing minio"
+}
+
+variable "minio_root_password" {
+  type        = string
+  description = "The password for the minio root user"
+}
+
+variable "minio_url" {
+  type        = string
+  description = "The URL of the minio API"
+}

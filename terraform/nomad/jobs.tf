@@ -33,3 +33,7 @@ resource "nomad_job" "grafana" {
 resource "nomad_job" "boundary" {
   jobspec = file("${path.module}/jobs/boundary.nomad")
 }
+
+resource "nomad_job" "minio" {
+  jobspec = file("${path.module}/jobs/minio.nomad")
+}

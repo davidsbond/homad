@@ -32,3 +32,8 @@ resource "vault_policy" "boundary_credential_store" {
   name   = "boundary-credential-store"
   policy = file("${path.module}/policies/boundary-credential-store.hcl")
 }
+
+resource "vault_policy" "minio_reader" {
+  name   = "minio-reader"
+  policy = file("${path.module}/policies/minio-reader.hcl")
+}
