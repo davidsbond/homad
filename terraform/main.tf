@@ -32,6 +32,10 @@ module "vault" {
 
   # Boundary secrets
   boundary_password = module.boundary.boundary_password
+
+  # Minio secrets
+  minio_root_user     = var.minio_root_user
+  minio_root_password = var.minio_root_password
 }
 
 module "nomad" {
@@ -75,4 +79,11 @@ module "boundary" {
   vault_token       = module.vault.boundary_vault_token
   recovery_kms_file = var.boundary_recovery_file
   homelab_servers   = module.tailscale.homelab_servers
+}
+
+module "minio" {
+  source           = "./minio"
+  minio_access_key = var.minio_root_user
+  minio_secret_key = var.minio_root_password
+  minio_server     = var.minio_url
 }

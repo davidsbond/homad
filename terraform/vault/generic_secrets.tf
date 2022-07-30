@@ -20,3 +20,11 @@ resource "vault_generic_secret" "grafana" {
     password = var.grafana_password
   })
 }
+
+resource "vault_generic_secret" "minio" {
+  path = "minio/root"
+  data_json = jsonencode({
+    user     = var.minio_root_user
+    password = var.minio_root_password
+  })
+}

@@ -51,3 +51,21 @@ resource "nomad_external_volume" "postgres" {
     prevent_destroy = false
   }
 }
+
+resource "nomad_external_volume" "minio" {
+  type         = "csi"
+  plugin_id    = "nfs"
+  volume_id    = "minio"
+  name         = "minio"
+  capacity_min = "10M"
+  capacity_max = "100Gi"
+
+  capability {
+    access_mode     = "multi-node-multi-writer"
+    attachment_mode = "file-system"
+  }
+
+  lifecycle {
+    prevent_destroy = false
+  }
+}
