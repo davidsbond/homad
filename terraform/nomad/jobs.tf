@@ -37,3 +37,7 @@ resource "nomad_job" "boundary" {
 resource "nomad_job" "minio" {
   jobspec = file("${path.module}/jobs/minio.nomad")
 }
+
+resource "nomad_job" "ubuntu_upgrade" {
+  jobspec = file("${path.module}/jobs/ubuntu-upgrade.nomad")
+}
