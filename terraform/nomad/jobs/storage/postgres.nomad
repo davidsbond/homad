@@ -64,8 +64,7 @@ job "postgres" {
       }
 
       resources {
-        memory     = 1024
-        memory_max = 2048
+        memory = 1024
       }
 
       template {
