@@ -4,7 +4,7 @@ job "nomad-gc" {
   region      = "global"
 
   periodic {
-    cron             = "@hourly"
+    cron             = "@daily"
     prohibit_overlap = true
   }
 

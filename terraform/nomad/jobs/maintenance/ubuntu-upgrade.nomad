@@ -14,7 +14,7 @@ job "ubuntu-upgrade" {
 
       config {
         command = "apt-get"
-        args    = ["dist-upgrade"]
+        args    = ["dist-upgrade", "-y"]
       }
     }
   }
@@ -39,7 +39,7 @@ job "ubuntu-upgrade" {
 
       config {
         command = "apt-get"
-        args    = ["upgrade"]
+        args    = ["upgrade", "-y"]
       }
     }
 
@@ -53,7 +53,7 @@ job "ubuntu-upgrade" {
 
       config {
         command = "apt-get"
-        args    = ["autoremove"]
+        args    = ["autoremove", "-y"]
       }
     }
   }
