@@ -8,68 +8,19 @@ job "ubuntu-upgrade" {
     prohibit_overlap = true
   }
 
-  group "distribution" {
-    reschedule {
-      attempts       = 5
-      interval       = "2m"
-      delay          = "10s"
-      max_delay      = "30s"
-      delay_function = "exponential"
-    }
-
-    task "dist-upgrade" {
+  group "ubuntu-upgrade" {
+    task "ubuntu-upgrade" {
       driver = "raw_exec"
 
       config {
-        command = "apt-get"
-        args    = ["dist-upgrade", "-y"]
-      }
-    }
-  }
-
-  group "packages" {
-    reschedule {
-      attempts       = 5
-      interval       = "2m"
-      delay          = "10s"
-      max_delay      = "30s"
-      delay_function = "exponential"
-    }
-
-    task "update" {
-      driver = "raw_exec"
-
-      lifecycle {
-        hook    = "prestart"
-        sidecar = false
+        command = "./upgrade-ubuntu.sh"
       }
 
-      config {
-        command = "apt-get"
-        args    = ["update"]
-      }
-    }
-
-    task "upgrade" {
-      driver = "raw_exec"
-
-      config {
-        command = "apt-get"
-        args    = ["upgrade", "-y"]
-      }
-    }
-
-    task "autoremove" {
-      driver = "raw_exec"
-
-      lifecycle {
-        hook    = "poststop"
-        sidecar = false
-      }
-
-      config {
-        command = "apt-get"
-        args    = ["autoremove", "-y"]
+      artifact {
+        source = "https://raw.githubusercontent.com/davidsbond/homad/master/scripts/upgrade-ubuntu.sh"
+        options {
+          checksum = "sha256:5764395f1c9c3443f9268debf3455136138d2c99e64dbc5655e0ef033d8f3105"
+        }
       }
     }
   }
