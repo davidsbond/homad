@@ -23,5 +23,12 @@ jobs:
           sudo apt-get update 
           sudo apt-get install nomad
 
+      - name: Connect to Tailnet
+        uses: tailscale/github-action@v1
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+
       - name: Validate Nomad jobs
+        env:
+          NOMAD_ADDR: https://homelab.dsb.dev
         run: make nomad-validate
