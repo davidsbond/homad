@@ -9,6 +9,14 @@ job "ubuntu-upgrade" {
   }
 
   group "distribution" {
+    reschedule {
+      attempts       = 5
+      interval       = "2m"
+      delay          = "10s"
+      max_delay      = "30s"
+      delay_function = "exponential"
+    }
+
     task "dist-upgrade" {
       driver = "raw_exec"
 
@@ -20,6 +28,14 @@ job "ubuntu-upgrade" {
   }
 
   group "packages" {
+    reschedule {
+      attempts       = 5
+      interval       = "2m"
+      delay          = "10s"
+      max_delay      = "30s"
+      delay_function = "exponential"
+    }
+
     task "update" {
       driver = "raw_exec"
 
