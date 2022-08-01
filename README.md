@@ -37,6 +37,6 @@ GitHub action log.
 
 ## Upgrades
 
-Keeping Nomad & Ubuntu up-to-date is done by leveraging Nomad's period jobs & the [raw_exec](https://www.nomadproject.io/docs/drivers/raw_exec)
+Keeping Nomad & Ubuntu up-to-date is done by leveraging Nomad's periodic jobs & the [raw_exec](https://www.nomadproject.io/docs/drivers/raw_exec)
 driver. On a daily basis [this job](terraform/nomad/jobs/maintenance/ubuntu-upgrade.nomad) is ran which will keep Ubuntu's packages
 and distribution up-to-date.
