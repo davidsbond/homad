@@ -19,7 +19,7 @@ job "ubuntu-upgrade" {
       artifact {
         source = "https://raw.githubusercontent.com/davidsbond/homad/master/scripts/upgrade-ubuntu.sh"
         options {
-          checksum = "sha256:5764395f1c9c3443f9268debf3455136138d2c99e64dbc5655e0ef033d8f3105"
+          checksum = "sha256:c62a5890e61f170a4caee1bf840c3cea44d35061ce6d1b476a53cc2350c6dc06"
         }
       }
     }
