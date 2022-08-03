@@ -1,3 +1,3 @@
-resource "minio_s3_bucket" "default" {
-  bucket = "default"
+resource "minio_s3_bucket" "postgres_backups" {
+  bucket = "postgres-backups"
 }
