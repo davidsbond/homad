@@ -1,6 +1,6 @@
 job "postgres-backup" {
   datacenters = ["homad"]
-  type        = "sysbatch"
+  type        = "batch"
   region      = "global"
 
   periodic {
@@ -27,7 +27,7 @@ job "postgres-backup" {
         env         = true
         data        = <<EOT
 {{- with secret "minio/data/root" }}
-MINI0_ACCESS_KEY={{.Data.data.user}}
+MINIO_ACCESS_KEY={{.Data.data.user}}
 MINIO_SECRET_KEY={{.Data.data.password}} 
 {{ end }}
 EOT
