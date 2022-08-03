@@ -53,3 +53,7 @@ resource "nomad_job" "docker_gc" {
 resource "nomad_job" "journalctl_gc" {
   jobspec = file("${path.module}/jobs/maintenance/journalctl-gc.nomad")
 }
+
+resource "nomad_job" "postgres_backup" {
+  jobspec = file("${path.module}/jobs/maintenance/postgres-backup.nomad")
+}
