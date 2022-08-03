@@ -5,11 +5,9 @@ set -e
 
 DATABASES=$(psql -t -c "SELECT datname FROM pg_database WHERE datname NOT IN ('template0', 'template1', 'postgres')")
 
-mc alias set minio https://api.minio.homelab.dsb.dev "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
+mc alias set minio "$MINIO_HOST" "$MINIO_ACCESS_KEY" "$MINIO_SECRET_KEY"
 
 for DATABASE in $DATABASES; do
   BUCKET_PATH=minio/postgres-backups/"$DATABASE".sql.gz
-  pg_dump --host postgres.homelab.dsb.dev "$DATABASE" | gzip | mc pipe "$BUCKET_PATH"
+  pg_dump "$DATABASE" | gzip | mc pipe "$BUCKET_PATH"
 done
-
-

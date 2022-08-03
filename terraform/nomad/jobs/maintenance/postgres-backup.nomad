@@ -28,7 +28,8 @@ job "postgres-backup" {
         data        = <<EOT
 {{- with secret "minio/data/root" }}
 MINIO_ACCESS_KEY={{.Data.data.user}}
-MINIO_SECRET_KEY={{.Data.data.password}} 
+MINIO_SECRET_KEY={{.Data.data.password}}
+MINIO_HOST=https://api.minio.homelab.dsb.dev
 {{ end }}
 EOT
       }
@@ -48,7 +49,7 @@ EOT
       artifact {
         source = "https://raw.githubusercontent.com/davidsbond/homad/master/scripts/backup-database.sh"
         options {
-          checksum = "sha256:4b2a2ea71906c6b25977f9670af63712fd89792775af392e2b52b6e09b9355fa"
+          checksum = "sha256:93959e944e41346f2e13eac2452170e05a92f4ba916060b1d9e84a2070fc26f4"
         }
       }
     }
