@@ -87,6 +87,28 @@ provider "registry.terraform.io/davidsbond/tailscale" {
   ]
 }
 
+provider "registry.terraform.io/grafana/grafana" {
+  version     = "1.25.0"
+  constraints = "1.25.0"
+  hashes = [
+    "h1:+9jRy6eaCUof5kz3lv/j2Wio2lbn4NP/tJSxfLJWLE8=",
+    "zh:198c13933419456d69b5c56ab532effc89bbb6b666ff0662b088cad6d1984a55",
+    "zh:43dca72bbd80404e7632ba5ee30d5d35e404336fe4aeee5f7e08bb8902998e53",
+    "zh:4b7a4626357ecbd2efeffc9eeda833901725d30b6c5474459b801c474820f078",
+    "zh:4d359d437cf69332f2fc0c8152f88c7452f7162fd32698be38a0f4b207bc39b7",
+    "zh:4eba2916bf5c378d4dbda5001de93ce15ae1351c8ea3fbe14c3c7ddd30d5ebc3",
+    "zh:8a468c147a489c4bdaa41b03f4154d5b797f3a7958b6379d6ef5f1bb6717e6e1",
+    "zh:936d3801a94700e44ef767030098faa449d17874d71ce3489885299c78ee688a",
+    "zh:a2e152630353d448950a2411d274367e78a779667f73de78de4144f4dd4f5692",
+    "zh:cb7415bcbdb81e19ce0c9b6c6bccaa8365955d717337e9121d5101b6e6f28d9b",
+    "zh:d343789443d379be751ab9c80fd317d2c778d2899704722e5b3ad9e2743e5eb1",
+    "zh:e6af69c32351b42db4e269ae55fb925b893ffc13d7512334ed503be30ba2a24c",
+    "zh:f8b2ce6b14b50d498580603eea36cc28416c002fb7bf1b58cc41ef712d0f1f8b",
+    "zh:f90f8c84e3ee5fcc5ec849f668150cc2f188bb76f8a3645ec76b2c0558fcf256",
+    "zh:fc7865a20cbcba425b255b34fb4d62be83cd7a56f9be1ab2266c06d0a8cbb25b",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/boundary" {
   version     = "1.0.9"
   constraints = "1.0.9"

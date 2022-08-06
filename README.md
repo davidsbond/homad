@@ -22,6 +22,7 @@ Within my Nomad cluster, I run the following services:
 * [Minio](https://min.io/) - S3 compatible object storage.
 * [PiHole](https://pi-hole.net/) - DNS & Adblocker that I use on my networked devices at home
 * [Postgres](https://www.postgresql.org/) - SQL database for services that need one
+* [Prometheus](https://prometheus.io/) - Scrapes metrics from configured services for monitoring purposes.
 * [Traefik](https://traefik.io/) - Reverse proxy & load balancer that allows me to access my applications and issue TLS certificates
 
 ### CSI
