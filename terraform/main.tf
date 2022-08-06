@@ -87,3 +87,10 @@ module "minio" {
   minio_secret_key = var.minio_root_password
   minio_server     = var.minio_url
 }
+
+module "grafana" {
+  source   = "./grafana"
+  url      = var.grafana_url
+  email    = var.grafana_email
+  password = var.grafana_password
+}
