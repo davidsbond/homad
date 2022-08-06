@@ -69,3 +69,21 @@ resource "nomad_external_volume" "minio" {
     prevent_destroy = false
   }
 }
+
+resource "nomad_external_volume" "grafana" {
+  type         = "csi"
+  plugin_id    = "nfs"
+  volume_id    = "grafana"
+  name         = "grafana"
+  capacity_min = "10M"
+  capacity_max = "1Gi"
+
+  capability {
+    access_mode     = "multi-node-multi-writer"
+    attachment_mode = "file-system"
+  }
+
+  lifecycle {
+    prevent_destroy = false
+  }
+}
