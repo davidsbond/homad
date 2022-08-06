@@ -39,6 +39,10 @@ job "traefik" {
       port "traefik" {
         static = 8080
       }
+
+      port "metrics" {
+        static = 8083
+      }
     }
 
     ephemeral_disk {
@@ -66,6 +70,11 @@ job "traefik" {
         timeout  = "30s"
         port     = "ping"
       }
+    }
+
+    service {
+      name = "traefik-metrics"
+      port = "metrics"
     }
 
     task "traefik" {

@@ -29,8 +29,17 @@ entryPoints:
   postgres:
     address: :5432
 
+  metrics:
+    address: :8083
+
 ping:
   entryPoint: ping
+
+metrics:
+  prometheus:
+    entryPoint: metrics
+    addEntryPointsLabels: true
+    addServicesLabels: true
 
 certificatesResolvers:
   cloudflare:

@@ -6,5 +6,6 @@ resource "consul_key_prefix" "minio" {
     MINIO_BROWSER_REDIRECT_URL = "https://ui.minio.homelab.dsb.dev"
     MINIO_SITE_REGION          = "homelab"
     MINIO_SITE_NAME            = "homelab"
+    MINIO_PROMETHEUS_AUTH_TYPE = "public"
   }
 }

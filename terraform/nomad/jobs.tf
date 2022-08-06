@@ -57,3 +57,7 @@ resource "nomad_job" "journalctl_gc" {
 resource "nomad_job" "postgres_backup" {
   jobspec = file("${path.module}/jobs/maintenance/postgres-backup.nomad")
 }
+
+resource "nomad_job" "prometheus" {
+  jobspec = file("${path.module}/jobs/monitoring/prometheus.nomad")
+}
