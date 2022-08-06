@@ -61,3 +61,7 @@ resource "nomad_job" "postgres_backup" {
 resource "nomad_job" "prometheus" {
   jobspec = file("${path.module}/jobs/monitoring/prometheus.nomad")
 }
+
+resource "nomad_job" "prometheus_node_exporter" {
+  jobspec = file("${path.module}/jobs/monitoring/prometheus-node-exporter.nomad")
+}
