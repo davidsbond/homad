@@ -10,15 +10,17 @@ job "grafana" {
       }
     }
 
-    ephemeral_disk {
-      migrate = true
-      size    = 100
-      sticky  = true
+    volume "grafana" {
+      type            = "csi"
+      source          = "grafana"
+      read_only       = false
+      attachment_mode = "file-system"
+      access_mode     = "multi-node-multi-writer"
     }
 
     task "grafana" {
       driver = "docker"
-      user   = "472"
+      user   = "root"
 
       vault {
         policies      = ["grafana-reader"]
@@ -29,6 +31,11 @@ job "grafana" {
       config {
         image = "grafana/grafana:9.0.2"
         ports = ["grafana"]
+      }
+
+      volume_mount {
+        volume      = "grafana"
+        destination = "/var/lib/grafana"
       }
 
       logs {
