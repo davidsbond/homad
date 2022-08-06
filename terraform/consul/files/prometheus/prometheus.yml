@@ -32,3 +32,11 @@ scrape_configs:
         services: ['minio-api']
     scrape_interval: 5s
     metrics_path: /minio/v2/metrics/cluster
+
+  # Job that polls the node-exporter instance's metric endpoint
+  - job_name: node-metrics
+    consul_sd_configs:
+      - server: https://consul.homelab.dsb.dev
+        services: ['node-exporter']
+    scrape_interval: 5s
+    metrics_path: /metrics
