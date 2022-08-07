@@ -8,7 +8,7 @@ init-upgrade:
 	cd terraform && terraform init -upgrade
 
 plan:
-	cd terraform && terraform plan -var-file=.tfvars -out .plan
+	cd terraform && terraform plan -no-color -var-file=.tfvars -out .plan
 
 apply:
 	cd terraform && terraform apply .plan
