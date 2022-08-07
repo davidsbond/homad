@@ -6,10 +6,12 @@ on:
     paths:
       - '**.tf'
       - '**.nomad'
+      - '.github/workflows/terraform.yml'
   pull_request:
     paths:
       - '**.tf'
       - '**.nomad'
+      - '.github/workflows/terraform.yml'
 
 jobs:
   format:
@@ -56,7 +58,21 @@ jobs:
         run: make init
 
       - name: Terraform Plan
+        id: plan
         run: make plan
+
+      - name: Add plan output to PR
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: |
+            <details>
+              <summary>
+                Output of plan:
+              </summary>
+              <pre>${{steps.plan.outputs.stdout}}</pre>
+            </details>
+          GITHUB_TOKEN: ${{ github.token }}
 
   apply:
     concurrency: terraform
