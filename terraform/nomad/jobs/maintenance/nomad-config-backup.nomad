@@ -37,7 +37,7 @@ EOT
       artifact {
         source = "https://raw.githubusercontent.com/davidsbond/homad/master/scripts/backup-nomad-config.sh"
         options {
-          checksum = "sha256:93caf164c2e7819de9497a4eaca068da818a09ad01eb07214729487eeb00c5cd"
+          checksum = "sha256:d1375ced1fc0f6058e5377c00054a965aabd9710f2ba1797ac9db23759d19494"
         }
       }
     }
