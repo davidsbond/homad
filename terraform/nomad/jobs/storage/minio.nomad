@@ -83,6 +83,10 @@ job "minio" {
         change_signal = "SIGUSR1"
       }
 
+      resources {
+        memory = 1024
+      }
+
       logs {
         max_files = 1
       }
