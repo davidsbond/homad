@@ -1,6 +1,6 @@
 global:
-  scrape_interval:     5s
-  evaluation_interval: 5s
+  scrape_interval:     1m
+  evaluation_interval: 1m
 
 scrape_configs:
   # Job that polls the nomad prometheus metric endpoints
@@ -12,7 +12,6 @@ scrape_configs:
       - source_labels: ['__meta_consul_tags']
         regex: '(.*)http(.*)'
         action: keep
-    scrape_interval: 5s
     metrics_path: /v1/metrics
     params:
       format: ['prometheus']
@@ -22,7 +21,6 @@ scrape_configs:
     consul_sd_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['traefik-metrics']
-    scrape_interval: 5s
     metrics_path: /metrics
 
   # Job that polls the minio instance's metric endpoint
@@ -30,7 +28,6 @@ scrape_configs:
     consul_sd_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['minio-api']
-    scrape_interval: 5s
     metrics_path: /minio/v2/metrics/cluster
 
   # Job that polls the node-exporter instance's metric endpoint
@@ -38,7 +35,6 @@ scrape_configs:
     consul_sd_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['node-exporter']
-    scrape_interval: 5s
     metrics_path: /metrics
 
   # Job that polls the exporter-postgres instance's metric endpoint
@@ -46,5 +42,4 @@ scrape_configs:
     consul_sd_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['prometheus-exporter-postgres']
-    scrape_interval: 5s
     metrics_path: /metrics
