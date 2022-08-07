@@ -4,7 +4,7 @@ job "traefik" {
   type        = "service"
 
   group "traefik" {
-    count = 3
+    count = 4
 
     constraint {
       operator = "distinct_hosts"
