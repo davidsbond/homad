@@ -25,6 +25,12 @@ Within my Nomad cluster, I run the following services:
 * [Prometheus](https://prometheus.io/) - Scrapes metrics from configured services for monitoring purposes.
 * [Traefik](https://traefik.io/) - Reverse proxy & load balancer that allows me to access my applications and issue TLS certificates
 
+# Custom Applications
+
+This repository also contains apps I've built for my own nefarious purposes. These are listed below:
+
+* [speed-dial](apps/speed-dial) - A link dashboard for services running in the homelab.
+
 ### CSI
 
 Workloads that require persistent storage can use volumes mounted via NFS using the [rocketduck CSI driver](https://gitlab.com/rocketduck/csi-plugin-nfs).

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Speed Dial</title>
+        <link href="/styles/bootstrap.min.css" rel="stylesheet">
+        <link href="/image/favicon.ico" rel="icon">
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5">
+                <h2 class="pb-2 border-bottom">Speed Dial</h2>
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                {{ range $i, $link := .Links }}
+                    <div class="col">
+                        <a href="{{ $link.URL }}" title="{{ $link.Name }}" target="_blank" tabindex="{{ add $i 1 }}">
+                            <div class="d-inline-flex align-items-center justify-content-center fs-2 mb-3">
+                                <img alt="{{ $link.Name }}" src="{{ $link.ImageURL }}" title="{{ $link.Name }}" style="width:100%"/>
+                            </div>
+                        </a>
+                    </div>
+                {{ end }}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

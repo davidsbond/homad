@@ -1,0 +1,52 @@
+builds:
+  - env:
+      - CGO_ENABLED=0
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+    ldflags:
+      - "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}"
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    binary: "speed-dial"
+
+dockers:
+  - id: linux_amd64
+    goos: linux
+    goarch: amd64
+    image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
+    dockerfile: Dockerfile
+    use: buildx
+    build_flag_templates:
+      - "--pull"
+      - "--platform=linux/amd64"
+
+  - id: linux_arm64
+    goos: linux
+    goarch: arm64
+    image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
+    dockerfile: Dockerfile
+    use: buildx
+    build_flag_templates:
+      - "--pull"
+      - "--platform=linux/arm64"
+
+docker_manifests:
+  - name_template: "ghcr.io/davidsbond/homad-speed-dial:latest"
+    image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
+      - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
+
+release:
+  disable: true
+
+checksum:
+  disable: true
+
+changelog:
+  skip: true
