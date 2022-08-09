@@ -43,3 +43,10 @@ scrape_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['prometheus-exporter-postgres']
     metrics_path: /metrics
+
+  # Job that polls the exporter-pihole instance's metric endpoint
+  - job_name: pihole-metrics
+    consul_sd_configs:
+      - server: https://consul.homelab.dsb.dev
+        services: ['prometheus-exporter-pihole']
+    metrics_path: /metrics
