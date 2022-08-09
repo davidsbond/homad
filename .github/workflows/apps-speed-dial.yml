@@ -1,8 +1,8 @@
 name: speed-dial
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*"
     paths:
       - 'apps/speed-dial/**'
       - 'apps/go.mod'
@@ -35,7 +35,7 @@ jobs:
 
   release:
     runs-on: ubuntu-22.04
-    if: github.ref == 'refs/heads/master'
+    if: startsWith(github.ref, 'refs/tags/v')
     needs:
       - vet
     steps:
