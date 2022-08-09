@@ -1,3 +1,6 @@
+snapshot:
+  name_template: "{{ .Commit }}"
+
 builds:
   - env:
       - CGO_ENABLED=0
@@ -5,7 +8,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}"
+      - "-s -w -X main.version={{.Version}} -X main.commit={{ .Commit }}"
     goos:
       - linux
     goarch:
@@ -18,6 +21,7 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Tag }}-amd64"
       - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
     dockerfile: Dockerfile
     use: buildx
@@ -29,6 +33,7 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Tag }}-arm64"
       - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
     dockerfile: Dockerfile
     use: buildx
@@ -41,6 +46,10 @@ docker_manifests:
     image_templates:
       - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
       - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
+  - name_template: "ghcr.io/davidsbond/homad-speed-dial:{{ .Tag }}"
+    image_templates:
+      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Tag }}-amd64"
+      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Tag }}-arm64"
 
 release:
   disable: true
