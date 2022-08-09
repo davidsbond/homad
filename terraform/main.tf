@@ -36,6 +36,9 @@ module "vault" {
   # Minio secrets
   minio_root_user     = var.minio_root_user
   minio_root_password = var.minio_root_password
+
+  # Home Assistant secrets
+  home_assistant_access_token = var.home_assistant_access_token
 }
 
 module "nomad" {

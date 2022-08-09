@@ -77,3 +77,8 @@ variable "minio_root_password" {
   type        = string
   description = "The password for the minio root user"
 }
+
+variable "home_assistant_access_token" {
+  type        = string
+  description = "The access token for home-assistant"
+}
