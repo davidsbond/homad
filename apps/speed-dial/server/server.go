@@ -1,3 +1,4 @@
+// Package server provides the HTTP server implementation for the speed-dial application.
 package server
 
 import (
@@ -18,6 +19,8 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
+// Run the server based on the provided configuration. This function blocks until the provided context is
+// cancelled or the HTTP server experiences an error it cannot recover from.
 func Run(ctx context.Context, config config.Config, templates *template.Template, images, styles fs.FS) error {
 	router := mux.NewRouter()
 	server := &http.Server{
