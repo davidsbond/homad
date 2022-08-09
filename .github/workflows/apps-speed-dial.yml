@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - "v*"
+    branches:
+      - master
     paths:
       - 'apps/speed-dial/**'
       - 'apps/go.mod'
@@ -35,7 +37,7 @@ jobs:
 
   release:
     runs-on: ubuntu-22.04
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/')
     needs:
       - vet
     steps:
