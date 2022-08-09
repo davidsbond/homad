@@ -48,3 +48,6 @@ recorder:
 
 # Enable history with recorder
 history:
+
+# Enable prometheus metrics
+prometheus:

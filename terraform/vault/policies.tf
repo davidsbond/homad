@@ -37,3 +37,8 @@ resource "vault_policy" "minio_reader" {
   name   = "minio-reader"
   policy = file("${path.module}/policies/minio-reader.hcl")
 }
+
+resource "vault_policy" "home_assistant_reader" {
+  name   = "home-assistant-reader"
+  policy = file("${path.module}/policies/home-assistant-reader.hcl")
+}

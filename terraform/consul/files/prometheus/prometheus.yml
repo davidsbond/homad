@@ -50,3 +50,12 @@ scrape_configs:
       - server: https://consul.homelab.dsb.dev
         services: ['prometheus-exporter-pihole']
     metrics_path: /metrics
+
+  # Job that polls the home-assistant instance's metric endpoint
+  - job_name: home-assistant-metrics
+    consul_sd_configs:
+      - server: https://consul.homelab.dsb.dev
+        services: ['homeassistant']
+    metrics_path: /api/prometheus
+    authorization:
+      credentials_file: /etc/home-assistant/credentials

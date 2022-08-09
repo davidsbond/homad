@@ -28,3 +28,10 @@ resource "vault_generic_secret" "minio" {
     password = var.minio_root_password
   })
 }
+
+resource "vault_generic_secret" "home_assistant" {
+  path = "home-assistant/auth"
+  data_json = jsonencode({
+    access_token = var.home_assistant_access_token
+  })
+}

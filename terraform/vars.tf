@@ -102,3 +102,8 @@ variable "minio_url" {
   type        = string
   description = "The URL of the minio API"
 }
+
+variable "home_assistant_access_token" {
+  type        = string
+  description = "The access token for home-assistant"
+}

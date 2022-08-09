@@ -45,17 +45,33 @@ job "prometheus" {
       driver = "docker"
       user   = "root"
 
+      vault {
+        policies      = ["home-assistant-reader"]
+        change_mode   = "signal"
+        change_signal = "SIGUSR1"
+      }
+
       config {
         image = "prom/prometheus:v2.37.0"
         ports = ["prometheus"]
         volumes = [
           "local/prometheus.yml:/etc/prometheus/prometheus.yml",
+          "secrets/home-assistant:/etc/home-assistant/credentials"
         ]
       }
 
       volume_mount {
         volume      = "prometheus"
         destination = "/prometheus"
+      }
+
+      template {
+        destination = "secrets/home-assistant"
+        data        = <<EOT
+{{- with secret "home-assistant/data/auth" }}
+{{.Data.data.access_token}}
+{{ end }}
+EOT
       }
 
       template {
