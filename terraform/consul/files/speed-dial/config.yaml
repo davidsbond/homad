@@ -1,0 +1,35 @@
+port: 8080
+links:
+  - name: Nomad
+    url: https://homelab.dsb.dev
+    image_url: /image/nomad.png
+  - name: Vault
+    url: https://vault.homelab.dsb.dev
+    image_url: /image/vault.png
+  - name: Consul
+    url: https://consul.homelab.dsb.dev
+    image_url: /image/consul.png
+  - name: PiHole
+    url: https://pihole.homelab.dsb.dev
+    image_url: /image/pihole.png
+  - name: Home Assistant
+    url: https://home-assistant.homelab.dsb.dev
+    image_url: /image/home-assistant.png
+  - name: Bitwarden
+    url: https://bitwarden.homelab.dsb.dev
+    image_url: /image/bitwarden.png
+  - name: Traefik
+    url: https://traefik.homelab.dsb.dev
+    image_url: /image/traefik.png
+  - name: Grafana
+    url: https://grafana.homelab.dsb.dev
+    image_url: /image/grafana.png
+  - name: Boundary
+    url: https://boundary.homelab.dsb.dev
+    image_url: /image/boundary.png
+  - name: Minio
+    url: https://ui.minio.homelab.dsb.dev
+    image_url: /image/minio.png
+  - name: Prometheus
+    url: https://prometheus.homelab.dsb.dev
+    image_url: /image/prometheus.png
