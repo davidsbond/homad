@@ -77,3 +77,7 @@ resource "nomad_job" "nomad_config_backup" {
 resource "nomad_job" "prometheus_exporter_pihole" {
   jobspec = file("${path.module}/jobs/monitoring/prometheus-exporter-pihole.nomad")
 }
+
+resource "nomad_job" "speed_dial" {
+  jobspec = file("${path.module}/jobs/apps/speed-dial.nomad")
+}
