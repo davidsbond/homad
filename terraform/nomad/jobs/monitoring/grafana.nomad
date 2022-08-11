@@ -2,6 +2,7 @@ job "grafana" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "monitoring"
 
   group "grafana" {
     network {

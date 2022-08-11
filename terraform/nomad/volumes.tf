@@ -5,6 +5,7 @@ resource "nomad_external_volume" "home_assistant" {
   name         = "home-assistant"
   capacity_min = "10M"
   capacity_max = "1Gi"
+  namespace    = "monitoring"
 
   capability {
     access_mode     = "multi-node-multi-writer"
@@ -23,6 +24,7 @@ resource "nomad_external_volume" "bitwarden" {
   name         = "bitwarden"
   capacity_min = "10M"
   capacity_max = "1Gi"
+  namespace    = "security"
 
   capability {
     access_mode     = "multi-node-multi-writer"
@@ -77,6 +79,7 @@ resource "nomad_external_volume" "grafana" {
   name         = "grafana"
   capacity_min = "10M"
   capacity_max = "1Gi"
+  namespace    = "monitoring"
 
   capability {
     access_mode     = "multi-node-multi-writer"
@@ -95,6 +98,7 @@ resource "nomad_external_volume" "prometheus" {
   name         = "prometheus"
   capacity_min = "10M"
   capacity_max = "10Gi"
+  namespace    = "monitoring"
 
   capability {
     access_mode     = "multi-node-multi-writer"

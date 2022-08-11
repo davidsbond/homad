@@ -2,6 +2,7 @@ job "bitwarden" {
   datacenters = ["homad"]
   type        = "service"
   region      = "global"
+  namespace   = "security"
 
   group "bitwarden" {
     network {

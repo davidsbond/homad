@@ -2,6 +2,7 @@ job "prometheus-exporter-postgres" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "monitoring"
 
   group "prometheus-exporter-postgres" {
     count = 1

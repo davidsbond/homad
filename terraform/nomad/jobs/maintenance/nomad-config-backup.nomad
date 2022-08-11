@@ -2,6 +2,7 @@ job "nomad-config-backup" {
   datacenters = ["homad"]
   type        = "sysbatch"
   region      = "global"
+  namespace   = "maintenance"
 
   periodic {
     cron             = "@daily"

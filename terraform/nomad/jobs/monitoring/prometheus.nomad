@@ -2,6 +2,7 @@ job "prometheus" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "monitoring"
 
   group "prometheus" {
     count = 1

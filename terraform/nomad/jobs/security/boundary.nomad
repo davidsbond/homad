@@ -2,6 +2,7 @@ job "boundary" {
   datacenters = ["homad"]
   type        = "service"
   region      = "global"
+  namespace   = "security"
 
   group "boundary" {
     network {

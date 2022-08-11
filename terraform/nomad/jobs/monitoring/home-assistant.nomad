@@ -2,6 +2,7 @@ job "homeassistant" {
   datacenters = ["homad"]
   type        = "service"
   region      = "global"
+  namespace   = "monitoring"
 
   group "homeassistant" {
     network {

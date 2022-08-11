@@ -37,7 +37,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "gridPos": {
         "h": 1,
@@ -50,7 +50,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "refId": "A"
         }
@@ -65,7 +65,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -114,7 +114,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "sum(traefik_service_request_duration_seconds_sum{}) by (service) / sum(traefik_service_request_duration_seconds_count{}) by (service)",
           "format": "time_series",
@@ -161,7 +161,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -210,7 +210,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "sum(rate(traefik_service_requests_total[5m])) by (service) ",
           "format": "time_series",
@@ -226,7 +226,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -275,7 +275,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "sum(rate(traefik_entrypoint_requests_total{entrypoint =~ \"$entrypoint\"}[5m])) by (entrypoint) ",
           "format": "time_series",
@@ -295,7 +295,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -344,7 +344,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "rate(traefik_entrypoint_requests_total{entrypoint=~\"$entrypoint\",code=\"200\"}[5m])",
           "format": "time_series",
@@ -391,7 +391,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -440,7 +440,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "rate(traefik_entrypoint_requests_total{entrypoint=~\"$entrypoint\",code!=\"200\"}[5m])",
           "format": "time_series",
@@ -483,7 +483,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "gridPos": {
         "h": 1,
@@ -497,7 +497,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "refId": "A"
         }
@@ -508,7 +508,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -572,7 +572,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "sum(traefik_service_request_duration_seconds_sum{service=\"$service\"}) / sum(traefik_service_requests_total{service=\"$service\"}) * 1000",
           "format": "time_series",
@@ -588,7 +588,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -637,7 +637,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "avg by (method, code) (traefik_service_requests_total{service=\"$service\"})",
           "format": "time_series",
@@ -657,7 +657,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -706,7 +706,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "sum(rate(traefik_service_requests_total{service=\"$service\"}[5m]))",
           "format": "time_series",
@@ -766,7 +766,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "LA903rzVz"
+          "uid": "4dRefSi4z"
         },
         "definition": "label_values(service)",
         "hide": 0,
@@ -795,7 +795,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "LA903rzVz"
+          "uid": "4dRefSi4z"
         },
         "definition": "",
         "hide": 0,

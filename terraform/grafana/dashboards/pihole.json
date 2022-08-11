@@ -5,7 +5,7 @@
         "builtIn": 1,
         "datasource": {
           "type": "prometheus",
-          "uid": "LA903rzVz"
+          "uid": "4dRefSi4z"
         },
         "enable": true,
         "hide": true,
@@ -55,7 +55,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -124,7 +124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_status{hostname=~'$node'}",
           "instant": true,
@@ -140,7 +140,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -203,7 +203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_domains_being_blocked{hostname=~'$node'}",
           "instant": false,
@@ -219,7 +219,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -282,7 +282,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_unique_domains{hostname=~'$node'}",
           "interval": "",
@@ -297,7 +297,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -346,7 +346,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_top_queries{hostname=~'$node'}",
           "instant": true,
@@ -362,7 +362,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -412,7 +412,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_reply{hostname='$node'}",
           "interval": "",
@@ -427,7 +427,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -476,7 +476,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_top_ads{hostname=~'$node'}",
           "interval": "",
@@ -497,7 +497,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -538,7 +538,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_dns_queries_all_types{hostname=~'$node'}",
           "interval": "",
@@ -580,7 +580,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -640,7 +640,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_ads_percentage_today{hostname=~'$node'}",
           "instant": false,
@@ -662,7 +662,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -704,7 +704,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_ads_blocked_today{hostname=~'$node'}",
           "instant": false,
@@ -751,7 +751,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -792,7 +792,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_queries_cached{hostname=~'$node'}",
           "interval": "",
@@ -802,7 +802,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_queries_forwarded{hostname=~'$node'}",
           "interval": "",
@@ -848,7 +848,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -889,7 +889,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_querytypes",
           "interval": "",
@@ -937,7 +937,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -978,7 +978,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_ads_percentage_today",
           "interval": "",
@@ -1021,7 +1021,7 @@
       "columns": [],
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fontSize": "100%",
       "gridPos": {
@@ -1061,7 +1061,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "topk(15, pihole_top_queries)",
           "instant": true,
@@ -1080,7 +1080,7 @@
       "columns": [],
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fontSize": "100%",
       "gridPos": {
@@ -1124,7 +1124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "topk(15, pihole_top_ads)",
           "instant": true,
@@ -1145,7 +1145,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1193,7 +1193,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_forward_destinations{hostname=~'$node'}",
           "interval": "",
@@ -1239,7 +1239,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "LA903rzVz"
+        "uid": "4dRefSi4z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1280,7 +1280,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "LA903rzVz"
+            "uid": "4dRefSi4z"
           },
           "expr": "pihole_unique_clients{hostname=~'$node'}",
           "interval": "",
@@ -1334,7 +1334,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "LA903rzVz"
+          "uid": "4dRefSi4z"
         },
         "definition": "label_values(pihole_ads_blocked_today, hostname)",
         "hide": 0,

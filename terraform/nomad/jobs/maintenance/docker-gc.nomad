@@ -2,6 +2,7 @@ job "docker-gc" {
   datacenters = ["homad"]
   type        = "sysbatch"
   region      = "global"
+  namespace   = "maintenance"
 
   periodic {
     cron             = "@daily"
