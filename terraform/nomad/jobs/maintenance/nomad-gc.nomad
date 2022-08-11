@@ -2,6 +2,7 @@ job "nomad-gc" {
   datacenters = ["homad"]
   type        = "batch"
   region      = "global"
+  namespace   = "maintenance"
 
   periodic {
     cron             = "@daily"

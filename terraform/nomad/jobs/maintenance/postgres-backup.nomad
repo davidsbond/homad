@@ -2,6 +2,7 @@ job "postgres-backup" {
   datacenters = ["homad"]
   type        = "batch"
   region      = "global"
+  namespace   = "maintenance"
 
   periodic {
     cron             = "@hourly"

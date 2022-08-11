@@ -2,6 +2,7 @@ job "speed-dial" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "apps"
 
   group "speed-dial" {
     network {

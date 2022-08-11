@@ -2,6 +2,7 @@ job "prometheus-exporter-pihole" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "monitoring"
 
   group "prometheus-exporter-pihole" {
     count = 1

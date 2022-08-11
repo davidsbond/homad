@@ -2,6 +2,7 @@ job "prometheus-node-exporter" {
   region      = "global"
   datacenters = ["homad"]
   type        = "system"
+  namespace   = "monitoring"
 
   group "node-exporter" {
     count = 1
