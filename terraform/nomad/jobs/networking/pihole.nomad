@@ -2,6 +2,7 @@ job "pihole" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "networking"
 
   group "pihole" {
     count = 2

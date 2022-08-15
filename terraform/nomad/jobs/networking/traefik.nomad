@@ -2,6 +2,7 @@ job "traefik" {
   region      = "global"
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "networking"
 
   group "traefik" {
     count = 4
