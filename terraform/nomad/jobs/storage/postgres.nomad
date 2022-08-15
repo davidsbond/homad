@@ -2,6 +2,7 @@ job "postgres" {
   datacenters = ["homad"]
   type        = "service"
   region      = "global"
+  namespace   = "storage"
 
   group "postgres" {
     network {

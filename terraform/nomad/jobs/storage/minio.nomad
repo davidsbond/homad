@@ -2,6 +2,7 @@ job "minio" {
   datacenters = ["homad"]
   type        = "service"
   region      = "global"
+  namespace   = "storage"
 
   group "minio" {
     network {

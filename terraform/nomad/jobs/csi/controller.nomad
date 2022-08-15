@@ -1,6 +1,7 @@
 job "storage-controller" {
   datacenters = ["homad"]
   type        = "service"
+  namespace   = "csi"
 
   group "controller" {
     task "controller" {

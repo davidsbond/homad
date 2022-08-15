@@ -1,6 +1,7 @@
 job "storage-node" {
   datacenters = ["homad"]
   type        = "system"
+  namespace   = "csi"
 
   group "node" {
     task "node" {

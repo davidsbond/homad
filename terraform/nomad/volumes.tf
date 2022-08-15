@@ -43,6 +43,7 @@ resource "nomad_external_volume" "postgres" {
   name         = "postgres"
   capacity_min = "10M"
   capacity_max = "1Gi"
+  namespace    = "storage"
 
   capability {
     access_mode     = "multi-node-multi-writer"
@@ -61,6 +62,7 @@ resource "nomad_external_volume" "minio" {
   name         = "minio"
   capacity_min = "10M"
   capacity_max = "100Gi"
+  namespace    = "storage"
 
   capability {
     access_mode     = "multi-node-multi-writer"

@@ -27,3 +27,8 @@ resource "nomad_namespace" "security" {
   name        = "security"
   description = "The namespace for jobs that provide security functionality"
 }
+
+resource "nomad_namespace" "csi" {
+  name        = "csi"
+  description = "The namespace for CSI drivers"
+}
