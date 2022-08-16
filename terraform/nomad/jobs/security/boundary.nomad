@@ -29,7 +29,7 @@ job "boundary" {
       driver = "docker"
 
       config {
-        image   = "hashicorp/boundary:0.9.0"
+        image   = "hashicorp/boundary:0.10.1"
         command = "database"
         args = [
           "init",
@@ -104,7 +104,7 @@ EOT
       driver = "docker"
 
       config {
-        image      = "hashicorp/boundary:0.8.1"
+        image      = "hashicorp/boundary:0.10.1"
         ports      = ["controller", "worker", "comm"]
         volumes    = ["secrets/boundary.hcl:/boundary/boundary.hcl"]
         privileged = true
