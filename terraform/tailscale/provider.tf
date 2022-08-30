@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     tailscale = {
-      source  = "davidsbond/tailscale"
-      version = "0.12.2"
+      source  = "tailscale/tailscale"
+      version = "0.13.5"
     }
   }
 }
