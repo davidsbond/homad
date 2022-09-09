@@ -14,7 +14,7 @@ builds:
     goarch:
       - amd64
       - arm64
-    binary: "speed-dial"
+    binary: "homadctl"
     hooks:
       post:
         - cmd: upx {{ .Path }}
@@ -24,8 +24,8 @@ dockers:
     goos: linux
     goarch: amd64
     image_templates:
-      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Commit }}-amd64"
-      - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
+      - "ghcr.io/davidsbond/homad-homadctl:{{ .Commit }}-amd64"
+      - "ghcr.io/davidsbond/homad-homadctl:latest-amd64"
     dockerfile: Dockerfile
     use: buildx
     build_flag_templates:
@@ -36,8 +36,8 @@ dockers:
     goos: linux
     goarch: arm64
     image_templates:
-      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Commit }}-arm64"
-      - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
+      - "ghcr.io/davidsbond/homad-homadctl:{{ .Commit }}-arm64"
+      - "ghcr.io/davidsbond/homad-homadctl:latest-arm64"
     dockerfile: Dockerfile
     use: buildx
     build_flag_templates:
@@ -45,14 +45,14 @@ dockers:
       - "--platform=linux/arm64"
 
 docker_manifests:
-  - name_template: "ghcr.io/davidsbond/homad-speed-dial:latest"
+  - name_template: "ghcr.io/davidsbond/homad-homadctl:latest"
     image_templates:
-      - "ghcr.io/davidsbond/homad-speed-dial:latest-amd64"
-      - "ghcr.io/davidsbond/homad-speed-dial:latest-arm64"
-  - name_template: "ghcr.io/davidsbond/homad-speed-dial:{{ .Commit }}"
+      - "ghcr.io/davidsbond/homad-homadctl:latest-amd64"
+      - "ghcr.io/davidsbond/homad-homadctl:latest-arm64"
+  - name_template: "ghcr.io/davidsbond/homad-homadctl:{{ .Commit }}"
     image_templates:
-      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Commit }}-amd64"
-      - "ghcr.io/davidsbond/homad-speed-dial:{{ .Commit }}-arm64"
+      - "ghcr.io/davidsbond/homad-homadctl:{{ .Commit }}-amd64"
+      - "ghcr.io/davidsbond/homad-homadctl:{{ .Commit }}-arm64"
 
 release:
   disable: true
