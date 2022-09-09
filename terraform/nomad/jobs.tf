@@ -81,3 +81,7 @@ resource "nomad_job" "prometheus_exporter_pihole" {
 resource "nomad_job" "speed_dial" {
   jobspec = file("${path.module}/jobs/apps/speed-dial.nomad")
 }
+
+resource "nomad_job" "postgres_vacuum" {
+  jobspec = file("${path.module}/jobs/maintenance/postgres-vacuum.nomad")
+}
