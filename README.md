@@ -29,6 +29,7 @@ Within my Nomad cluster, I run the following services:
 
 This repository also contains apps I've built for my own nefarious purposes. These are listed below:
 
+* [homadctl](apps/homadctl) - A command-line utility for automating my homelab tasks.
 * [speed-dial](apps/speed-dial) - A link dashboard for services running in the homelab.
 
 ### CSI
