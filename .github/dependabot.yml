@@ -12,3 +12,11 @@ updates:
     directory: /apps
     schedule:
       interval: daily
+  - package-ecosystem: docker
+    directory: /apps/homadctl
+    schedule:
+      interval: daily
+  - package-ecosystem: docker
+    directory: /apps/speed-dial
+    schedule:
+     interval: daily
