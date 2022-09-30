@@ -27,6 +27,7 @@ func main() {
 
 	root.AddCommand(
 		cmd.GC(),
+		cmd.Containers(),
 	)
 
 	if err := root.ExecuteContext(ctx); err != nil {
