@@ -5,8 +5,9 @@ go 1.19
 require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
-	github.com/hashicorp/nomad/api v0.0.0-20220909162634-8ff79d8a2da0
+	github.com/hashicorp/nomad/api v0.0.0-20220930123803-fb1f5ea2d981
 	github.com/spf13/cobra v1.5.0
+	golang.org/x/exp v0.0.0-20220929160808-de9c53c655b9
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 	gopkg.in/yaml.v3 v3.0.1
 )
