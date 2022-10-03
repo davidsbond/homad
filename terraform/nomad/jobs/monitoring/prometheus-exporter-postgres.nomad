@@ -29,7 +29,7 @@ job "prometheus-exporter-postgres" {
       }
 
       config {
-        image = "prometheuscommunity/postgres-exporter:v0.11.0"
+        image = "prometheuscommunity/postgres-exporter:v0.11.1"
         ports = ["metrics"]
         args = [
           "--auto-discover-databases"

@@ -92,7 +92,7 @@ job "traefik" {
       }
 
       config {
-        image        = "traefik:v2.8"
+        image        = "traefik:v2.9"
         network_mode = "host"
 
         args = [
