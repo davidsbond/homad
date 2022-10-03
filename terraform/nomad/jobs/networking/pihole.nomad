@@ -79,7 +79,7 @@ job "pihole" {
       }
 
       config {
-        image = "pihole/pihole:2022.05"
+        image = "pihole/pihole:2022.09.4"
         ports = [
           "dns",
           "pihole"

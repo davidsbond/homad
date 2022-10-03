@@ -53,7 +53,7 @@ job "prometheus" {
       }
 
       config {
-        image = "prom/prometheus:v2.37.0"
+        image = "prom/prometheus:v2.38.0"
         ports = ["prometheus"]
         volumes = [
           "local/prometheus.yml:/etc/prometheus/prometheus.yml",

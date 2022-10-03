@@ -23,7 +23,7 @@ job "prometheus-node-exporter" {
       driver = "docker"
 
       config {
-        image = "prom/node-exporter:v1.3.1"
+        image = "prom/node-exporter:v1.4.0"
         ports = ["metrics"]
         args = [
           "--path.procfs=/host/proc",

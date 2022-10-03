@@ -49,7 +49,7 @@ job "homeassistant" {
       }
 
       config {
-        image = "homeassistant/home-assistant:2022.6"
+        image = "homeassistant/home-assistant:2022.9"
         ports = ["homeassistant"]
 
         volumes = [
