@@ -32,7 +32,6 @@ job "minio" {
     service {
       name = "minio-api"
       port = "api"
-      task = "minio"
 
       tags = [
         "traefik.enable=true",
@@ -52,7 +51,6 @@ job "minio" {
     service {
       name = "minio-ui"
       port = "ui"
-      task = "minio"
 
       tags = [
         "traefik.enable=true",

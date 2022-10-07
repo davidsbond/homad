@@ -28,7 +28,6 @@ job "bitwarden" {
     service {
       name = "bitwarden"
       port = "bitwarden"
-      task = "bitwarden"
 
       tags = [
         "traefik.enable=true",

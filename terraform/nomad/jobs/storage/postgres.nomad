@@ -28,7 +28,6 @@ job "postgres" {
     service {
       name = "postgres"
       port = "postgres"
-      task = "postgres"
 
       tags = [
         "traefik.enable=true",
