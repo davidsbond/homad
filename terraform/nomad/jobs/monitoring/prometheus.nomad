@@ -24,7 +24,6 @@ job "prometheus" {
     service {
       name = "prometheus"
       port = "prometheus"
-      task = "prometheus"
 
       tags = [
         "traefik.enable=true",

@@ -22,7 +22,6 @@ job "homeassistant" {
     service {
       name = "homeassistant"
       port = "homeassistant"
-      task = "homeassistant"
 
       tags = [
         "traefik.enable=true",
