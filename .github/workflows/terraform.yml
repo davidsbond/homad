@@ -31,7 +31,7 @@ jobs:
     needs:
       - format
     runs-on: ubuntu-20.04
-    if: ${{ !contains(github.ref, 'dependabot/') }}
+    if: (github.actor != 'dependabot[bot]') && !startsWith(github.head_ref, 'dependabot/')
     steps:
       - name: Checkout
         uses: actions/checkout@v3.1.0
