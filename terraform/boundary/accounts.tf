@@ -3,8 +3,7 @@ resource "random_password" "david" {
   length  = 16
 }
 
-resource "boundary_account" "david" {
-  name           = "david"
+resource "boundary_account_password" "david" {
   type           = "password"
   login_name     = "david"
   password       = random_password.david.result
