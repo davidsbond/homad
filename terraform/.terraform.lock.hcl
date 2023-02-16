@@ -110,22 +110,22 @@ provider "registry.terraform.io/grafana/grafana" {
 }
 
 provider "registry.terraform.io/hashicorp/boundary" {
-  version     = "1.1.2"
-  constraints = "1.1.2"
+  version     = "1.1.4"
+  constraints = "1.1.4"
   hashes = [
-    "h1:UY+9MSaR8ZBVZvs1aCvQwxbu7cTLibQW8RnOUqsxzg8=",
-    "zh:08abde786e8c24ee67c33562a20ebd2067eae01c12c236c2bc339e2a543b6890",
-    "zh:3895d241ee60998fbad3611592466a7481c2323ea7c6488b1dc816b653efc252",
-    "zh:572e079e33678984e87fa632ddffe9cfcfd287f44de495d6fb32626dc9882a4f",
-    "zh:65d0a8e7115873fd66b660aea9b0fdf5db101f5a13b5b3480608007f01a27c90",
-    "zh:6e24cb5489c4f7803e03932caf4bfd71468bd213abebd0763c7f198564ac3226",
+    "h1:JpGFp0JG5i1tTRSD3SF6p/b/wNPoTyQxTbsbX6a9t2M=",
+    "zh:08a9d64061e1d8cf72da1efb0c7a22dc4f1da702e9444b7fb2ff54fb29c02c29",
+    "zh:28e6852e3ec980565507451c878a4c5a9bdc84bcb19ca4ec451caf39e53ce5e8",
+    "zh:3113864ba7b1f534ded0118a5c6c9eabbeab2585e015380d6ee167c12800609c",
+    "zh:5fb363bba2dce076444b73191a57894814ab92f46a179c326cd22f6fcf6dcc8b",
     "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
-    "zh:9145f75ac4d5ad4feb30e7234fff63d22896a6878313dd5203ca989a44e96a23",
-    "zh:9f73ec251cd7b662f067fb10363292ace4676cc782b6167d65e0d3c17b45d2bc",
-    "zh:d549dd819593f863392a28f0dd9df398641969486b41f14d227bab9af38ae236",
-    "zh:f1333eb32232cc8f9f6a60ac667ed45f750fa902d2e16cd3758410b43bfc2936",
-    "zh:f4e8e3482ea7aec2f207f3be357bd651b8039fca841905ef4d6ff2d365e60917",
-    "zh:fa3a55b9e59230d1aa1f07aa82a46a7ebd0fd713890f1883c052ccc8d9caf2ec",
+    "zh:8c320e7591971e3cf944761a40dd1b71ab6e12803da9858c69360bb5a22849f2",
+    "zh:94f7729dc9de2d9f64572c6d514d65da11c68ae438fa8db4e4ec9641c6aa5a6d",
+    "zh:9fc756c0a1b60dbbb86a443b1e94722bb872881a953f753407a7f78ce9760a39",
+    "zh:b3a4486d16a593bfd1ba0c747bd6912d5880bec95097020014c1f2cd78d3b6ff",
+    "zh:c8a32e2cff27eef4b836d000299c7c3e81ae1d3939326f1c59abdee3ecc94ac0",
+    "zh:f83ff2b1af99922134feea0a0232bfcfdc00cb65dafd828f7baff452318685f6",
+    "zh:fa21f57a763a3ac1330eb380a0c55054ab19c3e166754a9db6f8c002e84a0b98",
   ]
 }
 
